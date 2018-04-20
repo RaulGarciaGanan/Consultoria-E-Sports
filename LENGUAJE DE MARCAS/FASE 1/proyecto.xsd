@@ -162,13 +162,13 @@
 
 					<xs:element name="inicio">
 						<xs:restriction base="date">
-							<xs:pattern value="[2018-2019]-[01-12]-[01-31]"/>
+							<xs:pattern value="[2018-2019][01-12][01-31]"/>
 						</xs:restriction>
 					</xs:element>
 
 					<xs:element name="final">
 						<xs:restriction base="date">
-							<xs:pattern value="[2018-2019]-[01-12]-[01-31]"/>
+							<xs:pattern value="[2018-2019][01-12][01-31]"/>
 						</xs:restriction>
 					</xs:element>
 
