@@ -1,0 +1,35 @@
+<?xml version="1.0">
+<esports>
+
+	<jugador nickname="">
+		<nombre></nombre>
+		<apellidos>
+			<apellido></apellido>
+		</apellidos>
+		<sueldo></sueldo>
+	</jugador>
+
+	<persona id="">
+		<nombre></nombre>
+		<contrasena></contrasena>
+		<usuario></usuario>
+		<tipo></tipo>
+	</persona>
+
+	<equipo id="">
+		<nombre></nombre>
+		<numJugadores></numJugadores>
+	</equipo>
+
+	<partido id="">
+		<resultado></resultado>
+	</partido>
+
+	<jornada id="">
+		<fecha>
+			<inicio></inicio>
+			<final></final>
+		</fecha>
+	</jornada>
+
+</esports>
