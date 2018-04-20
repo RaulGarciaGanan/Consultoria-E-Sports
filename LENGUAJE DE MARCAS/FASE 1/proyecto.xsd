@@ -1,0 +1,179 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<xs:element name="jugador">
+	<xs:complexType>
+		<xs:sequence>
+
+			<xs:element name="nombre">
+				<xs:simpleType>
+				    <xs:restriction base="xs:string">
+				      <xs:minLength value="3"/>
+				      <xs:maxLength value="15"/>
+				    </xs:restriction>
+			  </xs:simpleType>
+			</xs:element>
+
+			<xs:element name="apellidos">
+				<xs:simpleType>
+					<xs:element name="apellido" type="xs:string">
+						<xs:simpleType>
+				    		<xs:restriction base="xs:string">
+				      			<xs:minLength value="3"/>
+				      			<xs:maxLength value="15"/>
+				    		</xs:restriction>
+			  			</xs:simpleType>
+					</xs:element>
+				</xs:simpleType>
+			</xs:element>
+
+			<xs:element name="sueldo">
+				<xs:simpleType>
+				    <xs:restriction base="xs:string">
+				    	<xs:minInclusive value="735"/>
+				     	<xs:maxInclusive value="200000"/>
+				    </xs:restriction>
+			  	</xs:simpleType>
+			</xs:element>
+
+		</xs:sequence>
+
+		<xs:attribute name="nickname">
+			<xs:simpleType>
+			    <xs:restriction base="xs:string">
+			    	<xs:minLength value="4"/>
+			     	<xs:maxLength value="15"/>
+			    </xs:restriction>
+		  	</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+</xs:element>
+
+<xs:element name="persona">
+	<xs:complexType>
+		<xs:sequence>
+
+			<xs:element name="nombre">
+				<xs:simpleType>
+				    <xs:restriction base="xs:string">
+				      	<xs:minLength value="3"/>
+				     	<xs:maxLength value="15"/>
+				    </xs:restriction>
+			  </xs:simpleType>
+			</xs:element>
+
+			<xs:element name="contrasena">
+				<xs:simpleType>
+				    <xs:restriction base="xs:string">
+				      	<xs:minLength value="8"/>
+				     	<xs:maxLength value="10"/>
+				     	<xs:pattern value="[a-zA-Z0-9]{8-10}"/>
+				    </xs:restriction>
+			  </xs:simpleType>
+			</xs:element>
+
+			<xs:element name="usuario">
+				<xs:simpleType>
+				    <xs:restriction base="xs:string">
+				      	<xs:minLength value="4"/>
+				     	<xs:maxLength value="10"/>
+				    </xs:restriction>
+			  </xs:simpleType>
+			</xs:element>
+
+			<xs:element name="tipo">
+				<xs:simpleType>
+				    <xs:restriction base="xs:integer">
+				      	<xs:minInclusive value="1"/>
+				     	<xs:maxInclusive value="3"/>
+				    </xs:restriction>
+			  </xs:simpleType>
+			</xs:element>
+
+		</xs:sequence>
+
+		<xs:attribute name="id">
+			<xs:simpleType>
+			    <xs:restriction base="xs:integer"/>
+		  	</xs:simpleType>
+		</xs:attribute>
+
+	</xs:complexType>
+</xs:element>
+
+<xs:element name="equipo">
+	<xs:complexType>
+		<xs:sequence>
+
+			<xs:element name="nombre" type="xs:string"/>
+				<xs:simpleType>
+				    <xs:restriction base="xs:string">
+				      	<xs:minLength value="3"/>
+				     	<xs:maxLength value="15"/>
+				    </xs:restriction>
+			  	</xs:simpleType>
+			</xs:element>
+
+			<xs:element name="numJugadores">
+				<xs:simpleType>
+				    <xs:restriction base="xs:integer">
+				      	<xs:minInclusive value="1"/>
+				      	<xs:maxInclusive value="6"/>
+				    </xs:restriction>
+			  	</xs:simpleType>
+			</xs:element>
+
+		</xs:sequence>
+
+		<xs:attribute name="id">
+			<xs:simpleType>
+			    <xs:restriction base="xs:integer"/>
+		  	</xs:simpleType>
+		</xs:attribute>
+
+	</xs:complexType>
+</xs:element>
+
+<xs:element name="partido">
+	<xs:simpleType>
+		<xs:element name="resultado" type="xs:integer"/>
+			<xs:simpleType>
+			    <xs:restriction base="xs:integer" use="optional">
+			      	<xs:minInclusive value="1"/>
+			      	<xs:maxInclusive value="2"/>
+			    </xs:restriction>
+		  	</xs:simpleType>
+		</xs:element>
+
+		<xs:attribute name="id">
+			<xs:simpleType>
+			    <xs:restriction base="xs:integer"/>
+		  	</xs:simpleType>
+		</xs:attribute>
+
+	</xs:simpleType>
+</xs:element>
+
+<xs:element name="jornada">
+	<xs:simpleType>
+		<xs:element name="fecha" type="xs:date">
+			<xs:complexType>
+				<xs:sequence>
+
+					<xs:element name="inicio">
+						<xs:restriction base="date">
+							<xs:pattern value="[2018-2019][01-12][01-31]"/>
+						</xs:restriction>
+					</xs:element>
+
+					<xs:element name="final">
+						<xs:restriction base="date">
+							<xs:pattern value="[2018-2019][01-12][01-31]"/>
+						</xs:restriction>
+					</xs:element>
+
+				</xs:sequence>
+			</xs:complexType>
+		</xs:element>
+	</xs:simpleType>
+</xs:element>
