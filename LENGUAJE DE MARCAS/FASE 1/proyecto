@@ -1,0 +1,35 @@
+<!ELEMENT esports (jugador+, persona+, equipo+, partido+, jornada)>
+
+<!ELEMENT jugador (nombre,apellidos,sueldo)>
+    <!ATTLIST jugador
+                nickname (#PCDATA) #REQUIRED>
+    <!ELEMENT nombre (#PCDATA)>
+    <!ELEMENT apellidos (apellido)>
+        <!ELEMENT apellido (#PCDATA)>
+    <!ELEMENT sueldo (#PCDATA)>
+
+<!ELEMENT persona (nombre,contrasena,usuario,tipo)>
+    <!ATTLIST persona
+                id ID #REQUIRED>
+    <!ELEMENT contrasena (#PCDATA)>
+    <!ELEMENT usuario (#PCDATA)>
+    <!ELEMENT tipo (#PCDATA)>
+
+<!ELEMENT equipo (nombre,numJugadores)>
+     <!ATTLIST equipo
+                id ID #REQUIRED>
+    <!ELEMENT numJugadores (#PCDATA)>
+
+<!ELEMENT partido (resultado)>
+    <!ATTLIST persona
+            id ID #REQUIRED>
+    <!ELEMENT resultado (#PCDATA)>
+
+<!ELEMENT jornada (fecha)>
+    <!ATTLIST jornada
+                id ID #REQUIRED>
+    <!ELEMENT fecha (inicio,final)>
+        <!ELEMENT inicio (#PCDATA)>
+        <!ELEMENT final (#PCDATA)>
+
+
