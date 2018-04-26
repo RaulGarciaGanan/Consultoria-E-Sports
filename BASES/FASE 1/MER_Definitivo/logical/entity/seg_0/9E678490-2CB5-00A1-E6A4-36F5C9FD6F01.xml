@@ -55,20 +55,6 @@
 <logicalDatatype>LOGDT007</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Id_Temporada" id="E2DC0859-9F04-541B-5ADE-6DB56FDA5A0E">
-<createdBy>Aitor Alday</createdBy>
-<createdTime>2018-04-26 08:33:30 UTC</createdTime>
-<generatorID>AC0D82D9-DE2D-70B3-CA55-51D8216B4C31</generatorID>
-<ownerDesignName>MER_Definitivo</ownerDesignName>
-<engineerTo>
-<item key="31B50B12-2895-9CCC-A4F9-0DF21D2ED508" value="true"/>
-</engineerTo>
-<referedAttribute>53B1F178-B97C-3569-2CD6-2B294CA8255C</referedAttribute>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="47F16E88-B003-B98A-9312-EF388E2A9B63" name="JORNADA PK">

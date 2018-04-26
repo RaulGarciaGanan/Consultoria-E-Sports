@@ -69,6 +69,19 @@
 <logicalDatatype>LOGDT024</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="Tipo" id="FD54642E-EA6C-1501-6C74-41181F3CC50A">
+<createdBy>Aitor Alday</createdBy>
+<createdTime>2018-04-26 10:37:22 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER_Definitivo</ownerDesignName>
+<engineerTo>
+<item key="31B50B12-2895-9CCC-A4F9-0DF21D2ED508" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="0196D242-757C-D3A4-BB65-4204863B5851" name="PERSONA PK">
