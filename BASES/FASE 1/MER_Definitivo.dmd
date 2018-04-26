@@ -1,0 +1,9 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="MER_Definitivo" id="B7E070ED-A764-7A16-FFE9-8D0A2F64E262" version="3.5">
+<createdBy>Aitor Alday</createdBy>
+<createdTime>2018-04-26 08:12:40 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER_Definitivo</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>B7E070ED-A764-7A16-FFE9-8D0A2F64E262</designId>
+</OSDM_Design>
