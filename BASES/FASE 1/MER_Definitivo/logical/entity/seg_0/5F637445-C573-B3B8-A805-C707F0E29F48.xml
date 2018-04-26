@@ -1,0 +1,61 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="5F637445-C573-B3B8-A805-C707F0E29F48" name="TEMPORADA">
+<createdBy>Aitor Alday</createdBy>
+<createdTime>2018-04-26 08:32:44 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER_Definitivo</ownerDesignName>
+<engineerTo>
+<item key="31B50B12-2895-9CCC-A4F9-0DF21D2ED508" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="Id_Temporada" id="53B1F178-B97C-3569-2CD6-2B294CA8255C">
+<createdBy>Aitor Alday</createdBy>
+<createdTime>2018-04-26 08:32:52 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER_Definitivo</ownerDesignName>
+<engineerTo>
+<item key="31B50B12-2895-9CCC-A4F9-0DF21D2ED508" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Año" id="04001A78-CBFE-BF17-4DF1-F9E8CA3829D6">
+<createdBy>Aitor Alday</createdBy>
+<createdTime>2018-04-26 08:33:10 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER_Definitivo</ownerDesignName>
+<engineerTo>
+<item key="31B50B12-2895-9CCC-A4F9-0DF21D2ED508" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="A03274E0-9BAC-AE43-2597-0718A2ABC4E2" name="TEMPORADA PK">
+<createdBy>Aitor Alday</createdBy>
+<createdTime>2018-04-26 08:33:09 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER_Definitivo</ownerDesignName>
+<engineerTo>
+<item key="31B50B12-2895-9CCC-A4F9-0DF21D2ED508" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>53B1F178-B97C-3569-2CD6-2B294CA8255C</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

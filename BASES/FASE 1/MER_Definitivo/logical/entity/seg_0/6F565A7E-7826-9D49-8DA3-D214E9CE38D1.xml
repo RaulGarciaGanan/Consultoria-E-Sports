@@ -1,0 +1,46 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="6F565A7E-7826-9D49-8DA3-D214E9CE38D1" name="DUEÑO">
+<createdBy>Aitor Alday</createdBy>
+<createdTime>2018-04-26 08:26:49 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER_Definitivo</ownerDesignName>
+<engineerTo>
+<item key="31B50B12-2895-9CCC-A4F9-0DF21D2ED508" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<hierarchicalParent>82EFE4C5-EF5A-E48D-8EF8-2713241D6328</hierarchicalParent>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="Nombre_Equipo" id="1109A82F-5BA0-BF2C-345F-5522918466ED">
+<createdBy>Aitor Alday</createdBy>
+<createdTime>2018-04-26 08:27:09 UTC</createdTime>
+<generatorID>Generado por el Usuario</generatorID>
+<ownerDesignName>MER_Definitivo</ownerDesignName>
+<engineerTo>
+<item key="31B50B12-2895-9CCC-A4F9-0DF21D2ED508" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Id_Equipo" id="991AE820-6956-8A98-39E8-125B1AD0A204">
+<createdBy>Aitor Alday</createdBy>
+<createdTime>2018-04-26 08:29:04 UTC</createdTime>
+<generatorID>1EFDFAE8-4E4D-2B71-58B9-4918F9F3FDCC</generatorID>
+<ownerDesignName>MER_Definitivo</ownerDesignName>
+<engineerTo>
+<item key="31B50B12-2895-9CCC-A4F9-0DF21D2ED508" value="true"/>
+</engineerTo>
+<referedAttribute>6114B792-BF26-DD07-BB49-F6C64721B9E0</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+</Entity>
