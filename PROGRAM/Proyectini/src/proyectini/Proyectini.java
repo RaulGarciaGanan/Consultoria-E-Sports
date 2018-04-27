@@ -14,8 +14,9 @@ import MisVentanas.*;
 public class Proyectini {
 
     public static DLogin dL;
+    public static VPrincipal vP;
     public static void main(String[] args) {
-        dL = new DLogin();
+        dL = new DLogin(vP, true);
         dL.setVisible(true);
         
     }
