@@ -5,17 +5,19 @@
  */
 package proyectini;
 
+import MisVentanas.*;
+
 /**
  *
  * @author Aitor Alday
  */
 public class Proyectini {
 
-    /**
-     * @param args the command line arguments
-     */
+    public static DLogin dL;
     public static void main(String[] args) {
-        // TODO code application logic here
+        dL = new DLogin();
+        dL.setVisible(true);
+        
     }
     
 }
