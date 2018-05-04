@@ -5,6 +5,8 @@
  */
 package MisVentanas;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Aitor Alday
@@ -154,6 +156,10 @@ public class VEquipos extends javax.swing.JFrame {
                 new VEquipos().setVisible(true);
             }
         });
+    }
+    
+    public void mostrarMensaje(String mensaje) {
+        JOptionPane.showMessageDialog(this, mensaje);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

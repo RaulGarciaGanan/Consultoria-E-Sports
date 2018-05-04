@@ -6,6 +6,7 @@
 package MisClasesBD;
 
 import MisClases.*;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 
 /**
@@ -14,20 +15,58 @@ import java.sql.PreparedStatement;
  */
 public class JugadorBD {
     
-    private static GenericoBD gbd;
+    private static Connection con;
     
-    public static void insertarPersona(Jugador j, String tipo){
+    public static void insertarJugador(Jugador j) throws Exception{
+        GenericoBD gbd = new GenericoBD();
+        con = gbd.abrirConexion(con);
         try{
             gbd = new GenericoBD();
-            PreparedStatement sentencia = gbd.abrirConexion().prepareStatement("insert into Jugador values (?,?,?,?,?)");
+            PreparedStatement sentencia = con.prepareStatement("insert into Jugador values (?,?,?,?)");
             sentencia.setInt(1, j.getIdJugador());
-            sentencia.setString(2, j.getNombre());
-            sentencia.setString(3, j.getNick());
+            sentencia.setString(2, j.getNick());
+            sentencia.setString(3, j.getNombre());
             sentencia.setDouble(4, j.getSueldo());
+            sentencia.executeUpdate();
             
-            gbd.cerrarConexion();
+            con.close();
         }
         catch(Exception e){
+            
+        }
+    }
+    
+    public static void actualizarJugador(Jugador j)throws Exception{
+        GenericoBD gbd = new GenericoBD();
+        con = gbd.abrirConexion(con);
+         try{
+            gbd = new GenericoBD();
+            PreparedStatement sentencia = con.prepareStatement("update Jugador set id_jugador=?, nickname=? nombre=?, sueldo=?");
+            sentencia.setInt(1, j.getIdJugador());
+            sentencia.setString(2, j.getNick());
+            sentencia.setString(3, j.getNombre());
+            sentencia.setDouble(4, j.getSueldo());
+            sentencia.executeUpdate();
+            
+            con.close();
+        }
+        catch(Exception e){
+            
+        }
+    }
+    
+    public static void borrarJugador(Jugador j) throws Exception{
+        GenericoBD gbd = new GenericoBD();
+        con = gbd.abrirConexion(con);
+        try {
+            gbd = new GenericoBD();
+            PreparedStatement sentencia = con.prepareStatement("delete from Jugador where id_jugador=?");
+            sentencia.setInt(1, j.getIdJugador());
+            sentencia.executeUpdate();
+            
+            con.close();
+        }
+        catch (Exception e) {
             
         }
     }

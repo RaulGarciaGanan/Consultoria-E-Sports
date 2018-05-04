@@ -7,6 +7,7 @@ package MisClasesBD;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 
 /**
  *
@@ -14,20 +15,35 @@ import java.sql.DriverManager;
  */
 public class GenericoBD {
     
-    private Connection con;
-    
-    public Connection abrirConexion()throws Exception{       
-            Class.forName("oracle.jdbc.OracleDriver");
-
-            String login="system";
-            String password= "oracle";
-            String url = "jdbc:oracle:thin:@SrvOracle:1521:orcl";
-            con = DriverManager.getConnection(url,login ,password);
-            
-            return con;
+    public Connection abrirConexion(Connection con)throws SQLException{  
+        try
+        {
+             Class.forName("oracle.jdbc.OracleDriver");
+             con = DriverManager.getConnection("jdbc:oracle:thin:@10.10.10.9:1521:db12102", "system", "oracle");
+             if(con != null)
+             {
+                 System.out.print("Conexion establecida");
+                 return con;
+             }
+             else
+             {
+                 System.out.print("No se ha podido establecer la conexion");
+                 return null;
+             }
+        }
+        catch(ClassNotFoundException | SQLException e){
+            return null;
+        }
     }
     
-    public void cerrarConexion() throws Exception{
+    public void cerrarConexion(Connection con) throws SQLException{
+        try
+        {
+            System.out.print("Conexion cerrada");
             con.close();
+        }
+        catch(SQLException e){
+            
+        }
     }
 }

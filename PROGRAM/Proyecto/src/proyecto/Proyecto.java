@@ -68,19 +68,19 @@ public class Proyecto {
     
     // <editor-fold defaultstate="collapsed" desc="Cerrar ventanas">
     public static void cerrarPersona(){
-        
+        vPer.dispose();
     }
     
     public static void cerrarJugador(){
-        
+        vJ.dispose();
     }
     
     public static void cerrarEquipos(){
-        
+        vE.dispose();
     }
     
     public static void cerrarPrincipal(){
-        
+        vP.dispose();
     }
     // </editor-fold>
     
@@ -108,10 +108,14 @@ public class Proyecto {
     // </editor-fold>
     
     // <editor-fold defaultstate="collapsed" desc="Para administracion">
-    public static void insertarPersona(Integer idPersona, String nombre, Integer tipo, String usuario, String contraseña, Equipo e) {
-        Persona p = new Persona(idPersona, nombre, tipo, usuario, contraseña, e);
+    public static void insertarPersona(Integer idPersona, String nombre, Integer tipo, String usuario, String contraseña, Equipo e) throws Exception{
+        Persona p = new Persona(idPersona, nombre, tipo, e);
         PersonaBD.insertarPersona(p, tipo);
-        PersonaBD.crearLogin(nombre, tipo, idPersona);
+        LoginBD.crearLogin(nombre, tipo, idPersona);
+    }
+    
+    public static void toVPersona(String mensaje) {
+        vPer.mostrarMensaje(mensaje);
     }
     // </editor-fold>
     
