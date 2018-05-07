@@ -48,21 +48,21 @@ public class VPrincipal extends javax.swing.JFrame {
         jCheckBoxMenuItem3 = new javax.swing.JCheckBoxMenuItem();
         jMenu6 = new javax.swing.JMenu();
         jMenu7 = new javax.swing.JMenu();
-        jCheckBoxMenuItem4 = new javax.swing.JCheckBoxMenuItem();
-        jCheckBoxMenuItem5 = new javax.swing.JCheckBoxMenuItem();
-        jCheckBoxMenuItem6 = new javax.swing.JCheckBoxMenuItem();
+        cbmJNuevo = new javax.swing.JCheckBoxMenuItem();
+        cbmJBorrar = new javax.swing.JCheckBoxMenuItem();
+        cbmJModificar = new javax.swing.JCheckBoxMenuItem();
         jMenu8 = new javax.swing.JMenu();
-        jCheckBoxMenuItem7 = new javax.swing.JCheckBoxMenuItem();
-        jCheckBoxMenuItem8 = new javax.swing.JCheckBoxMenuItem();
-        jCheckBoxMenuItem9 = new javax.swing.JCheckBoxMenuItem();
+        cbmENuevo = new javax.swing.JCheckBoxMenuItem();
+        cbmEBorrar = new javax.swing.JCheckBoxMenuItem();
+        cbmEModificar = new javax.swing.JCheckBoxMenuItem();
         jMenu1 = new javax.swing.JMenu();
-        miNuevaPer = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
-        jMenuItem9 = new javax.swing.JMenuItem();
+        cbmPerNuevo = new javax.swing.JMenuItem();
+        cbmPerBorrar = new javax.swing.JMenuItem();
+        cbmPerModificar = new javax.swing.JMenuItem();
         jMenu12 = new javax.swing.JMenu();
-        jCheckBoxMenuItem16 = new javax.swing.JCheckBoxMenuItem();
-        jCheckBoxMenuItem17 = new javax.swing.JCheckBoxMenuItem();
-        jCheckBoxMenuItem18 = new javax.swing.JCheckBoxMenuItem();
+        cbmCNuevo = new javax.swing.JCheckBoxMenuItem();
+        cbmCBorrar = new javax.swing.JCheckBoxMenuItem();
+        cbmCModificar = new javax.swing.JCheckBoxMenuItem();
 
         jMenuItem4.setText("jMenuItem4");
 
@@ -118,83 +118,113 @@ public class VPrincipal extends javax.swing.JFrame {
 
         jMenu7.setText("Jugadores");
 
-        jCheckBoxMenuItem4.setText("Nuevo");
-        jCheckBoxMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+        cbmJNuevo.setText("Nuevo");
+        cbmJNuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBoxMenuItem4ActionPerformed(evt);
+                cbmJNuevoActionPerformed(evt);
             }
         });
-        jMenu7.add(jCheckBoxMenuItem4);
+        jMenu7.add(cbmJNuevo);
 
-        jCheckBoxMenuItem5.setText("Eliminar");
-        jCheckBoxMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+        cbmJBorrar.setText("Eliminar");
+        cbmJBorrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBoxMenuItem5ActionPerformed(evt);
+                cbmJBorrarActionPerformed(evt);
             }
         });
-        jMenu7.add(jCheckBoxMenuItem5);
+        jMenu7.add(cbmJBorrar);
 
-        jCheckBoxMenuItem6.setText("Modificar");
-        jMenu7.add(jCheckBoxMenuItem6);
+        cbmJModificar.setText("Modificar");
+        cbmJModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbmJModificarActionPerformed(evt);
+            }
+        });
+        jMenu7.add(cbmJModificar);
 
         jMenu6.add(jMenu7);
 
         jMenu8.setText("Equipos");
 
-        jCheckBoxMenuItem7.setText("Nuevo");
-        jCheckBoxMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+        cbmENuevo.setText("Nuevo");
+        cbmENuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBoxMenuItem7ActionPerformed(evt);
+                cbmENuevoActionPerformed(evt);
             }
         });
-        jMenu8.add(jCheckBoxMenuItem7);
+        jMenu8.add(cbmENuevo);
 
-        jCheckBoxMenuItem8.setText("Eliminar");
-        jMenu8.add(jCheckBoxMenuItem8);
+        cbmEBorrar.setText("Eliminar");
+        cbmEBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbmEBorrarActionPerformed(evt);
+            }
+        });
+        jMenu8.add(cbmEBorrar);
 
-        jCheckBoxMenuItem9.setText("Modificar");
-        jMenu8.add(jCheckBoxMenuItem9);
+        cbmEModificar.setText("Modificar");
+        cbmEModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbmEModificarActionPerformed(evt);
+            }
+        });
+        jMenu8.add(cbmEModificar);
 
         jMenu6.add(jMenu8);
 
         jMenu1.setText("Persona");
 
-        miNuevaPer.setText("Nuevo");
-        miNuevaPer.addActionListener(new java.awt.event.ActionListener() {
+        cbmPerNuevo.setText("Nuevo");
+        cbmPerNuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                miNuevaPerActionPerformed(evt);
+                cbmPerNuevoActionPerformed(evt);
             }
         });
-        jMenu1.add(miNuevaPer);
+        jMenu1.add(cbmPerNuevo);
 
-        jMenuItem8.setText("Eliminar");
-        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+        cbmPerBorrar.setText("Eliminar");
+        cbmPerBorrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem8ActionPerformed(evt);
+                cbmPerBorrarActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem8);
+        jMenu1.add(cbmPerBorrar);
 
-        jMenuItem9.setText("Modificar");
-        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+        cbmPerModificar.setText("Modificar");
+        cbmPerModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem9ActionPerformed(evt);
+                cbmPerModificarActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem9);
+        jMenu1.add(cbmPerModificar);
 
         jMenu6.add(jMenu1);
 
         jMenu12.setText("Calendario");
 
-        jCheckBoxMenuItem16.setText("Nuevo");
-        jMenu12.add(jCheckBoxMenuItem16);
+        cbmCNuevo.setText("Nuevo");
+        cbmCNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbmCNuevoActionPerformed(evt);
+            }
+        });
+        jMenu12.add(cbmCNuevo);
 
-        jCheckBoxMenuItem17.setText("Eliminar");
-        jMenu12.add(jCheckBoxMenuItem17);
+        cbmCBorrar.setText("Eliminar");
+        cbmCBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbmCBorrarActionPerformed(evt);
+            }
+        });
+        jMenu12.add(cbmCBorrar);
 
-        jCheckBoxMenuItem18.setText("Modificar");
-        jMenu12.add(jCheckBoxMenuItem18);
+        cbmCModificar.setText("Modificar");
+        cbmCModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbmCModificarActionPerformed(evt);
+            }
+        });
+        jMenu12.add(cbmCModificar);
 
         jMenu6.add(jMenu12);
 
@@ -227,32 +257,56 @@ public class VPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
-    private void jCheckBoxMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItem4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBoxMenuItem4ActionPerformed
+    private void cbmJNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbmJNuevoActionPerformed
+        proyecto.Proyecto.abrirJugador();
+    }//GEN-LAST:event_cbmJNuevoActionPerformed
 
-    private void jCheckBoxMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItem5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBoxMenuItem5ActionPerformed
+    private void cbmJBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbmJBorrarActionPerformed
+        proyecto.Proyecto.abrirJugador();
+    }//GEN-LAST:event_cbmJBorrarActionPerformed
 
-    private void jCheckBoxMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItem7ActionPerformed
-       
-    }//GEN-LAST:event_jCheckBoxMenuItem7ActionPerformed
+    private void cbmENuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbmENuevoActionPerformed
+        proyecto.Proyecto.abrirEquipos('c');
+    }//GEN-LAST:event_cbmENuevoActionPerformed
 
-    private void miNuevaPerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miNuevaPerActionPerformed
+    private void cbmPerNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbmPerNuevoActionPerformed
+        proyecto.Proyecto.abrirPersona();
+    }//GEN-LAST:event_cbmPerNuevoActionPerformed
+
+    private void cbmPerBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbmPerBorrarActionPerformed
+        proyecto.Proyecto.abrirPersona();
+    }//GEN-LAST:event_cbmPerBorrarActionPerformed
+
+    private void cbmPerModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbmPerModificarActionPerformed
+        proyecto.Proyecto.abrirPersona();
+    }//GEN-LAST:event_cbmPerModificarActionPerformed
+
+    private void cbmJModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbmJModificarActionPerformed
+        proyecto.Proyecto.abrirJugador();
+    }//GEN-LAST:event_cbmJModificarActionPerformed
+
+    private void cbmEBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbmEBorrarActionPerformed
+        proyecto.Proyecto.abrirEquipos('b');
+    }//GEN-LAST:event_cbmEBorrarActionPerformed
+
+    private void cbmEModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbmEModificarActionPerformed
+        proyecto.Proyecto.abrirEquipos('e');
+    }//GEN-LAST:event_cbmEModificarActionPerformed
+
+    private void cbmCNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbmCNuevoActionPerformed
         
-    }//GEN-LAST:event_miNuevaPerActionPerformed
+    }//GEN-LAST:event_cbmCNuevoActionPerformed
 
-    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem8ActionPerformed
+    private void cbmCBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbmCBorrarActionPerformed
+        
+    }//GEN-LAST:event_cbmCBorrarActionPerformed
 
-    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem9ActionPerformed
+    private void cbmCModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbmCModificarActionPerformed
+        
+    }//GEN-LAST:event_cbmCModificarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -291,18 +345,21 @@ public class VPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBoxMenuItem cbmCBorrar;
+    private javax.swing.JCheckBoxMenuItem cbmCModificar;
+    private javax.swing.JCheckBoxMenuItem cbmCNuevo;
+    private javax.swing.JCheckBoxMenuItem cbmEBorrar;
+    private javax.swing.JCheckBoxMenuItem cbmEModificar;
+    private javax.swing.JCheckBoxMenuItem cbmENuevo;
+    private javax.swing.JCheckBoxMenuItem cbmJBorrar;
+    private javax.swing.JCheckBoxMenuItem cbmJModificar;
+    private javax.swing.JCheckBoxMenuItem cbmJNuevo;
+    private javax.swing.JMenuItem cbmPerBorrar;
+    private javax.swing.JMenuItem cbmPerModificar;
+    private javax.swing.JMenuItem cbmPerNuevo;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
-    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem16;
-    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem17;
-    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem18;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem2;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem3;
-    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem4;
-    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem5;
-    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem6;
-    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem7;
-    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem8;
-    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
@@ -322,8 +379,5 @@ public class VPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem9;
-    private javax.swing.JMenuItem miNuevaPer;
     // End of variables declaration//GEN-END:variables
 }
