@@ -8,6 +8,7 @@ package MisClasesBD;
 import MisClases.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 /**
  *
@@ -21,9 +22,8 @@ public class JugadorBD {
         GenericoBD gbd = new GenericoBD();
         con = gbd.abrirConexion(con);
         try{
-            gbd = new GenericoBD();
-            PreparedStatement sentencia = con.prepareStatement("insert into Jugador values (?,?,?,?)");
-            sentencia.setInt(1, j.getIdJugador());
+            PreparedStatement sentencia = con.prepareStatement("insert into Jugador(dni, nickname, nombre, sueldo) values (?,?,?,?)");
+            sentencia.setString(1, j.getDni());
             sentencia.setString(2, j.getNick());
             sentencia.setString(3, j.getNombre());
             sentencia.setDouble(4, j.getSueldo());
@@ -40,12 +40,12 @@ public class JugadorBD {
         GenericoBD gbd = new GenericoBD();
         con = gbd.abrirConexion(con);
          try{
-            gbd = new GenericoBD();
-            PreparedStatement sentencia = con.prepareStatement("update Jugador set id_jugador=?, nickname=? nombre=?, sueldo=?");
+            PreparedStatement sentencia = con.prepareStatement("update Jugador set id_jugador=?, dni=? nickname=? nombre=?, sueldo=?");
             sentencia.setInt(1, j.getIdJugador());
-            sentencia.setString(2, j.getNick());
-            sentencia.setString(3, j.getNombre());
-            sentencia.setDouble(4, j.getSueldo());
+            sentencia.setString(2, j.getDni());
+            sentencia.setString(3, j.getNick());
+            sentencia.setString(4, j.getNombre());
+            sentencia.setDouble(5, j.getSueldo());
             sentencia.executeUpdate();
             
             con.close();
@@ -59,7 +59,6 @@ public class JugadorBD {
         GenericoBD gbd = new GenericoBD();
         con = gbd.abrirConexion(con);
         try {
-            gbd = new GenericoBD();
             PreparedStatement sentencia = con.prepareStatement("delete from Jugador where id_jugador=?");
             sentencia.setInt(1, j.getIdJugador());
             sentencia.executeUpdate();
@@ -68,6 +67,29 @@ public class JugadorBD {
         }
         catch (Exception e) {
             
+        }
+    }
+
+    public static Jugador buscarJugador(String dni) throws Exception{
+       GenericoBD gbd = new GenericoBD();
+        con = gbd.abrirConexion(con);
+        try{
+            PreparedStatement sentencia = con.prepareStatement("select * from Jugador where dni=?");
+            sentencia.setString(1, dni);
+            ResultSet resultado = sentencia.executeQuery();
+            if(resultado.next()){
+                Jugador j = new Jugador(resultado.getString(2),resultado.getString(3), resultado.getString(4), resultado.getDouble(5)); //Para recoger la informacion de la base y crear un objeto con ella
+                con.close();
+                return j;
+            }
+            else{
+                con.close();
+                return null;
+            }
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+            return null;
         }
     }
 }

@@ -23,7 +23,7 @@ public class VEquipos extends javax.swing.JFrame {
         switch(opcion){
             case 'c':rbCrear.doClick();
                 break;
-            case 'b':rbborrar.doClick();
+            case 'b':rbBorrar.doClick();
                 break;
             case 'e':rbEditar.doClick();
             break;
@@ -49,7 +49,7 @@ public class VEquipos extends javax.swing.JFrame {
         bAceptar = new javax.swing.JButton();
         bVolver = new javax.swing.JButton();
         rbCrear = new javax.swing.JRadioButton();
-        rbborrar = new javax.swing.JRadioButton();
+        rbBorrar = new javax.swing.JRadioButton();
         rbEditar = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -68,6 +68,11 @@ public class VEquipos extends javax.swing.JFrame {
         });
 
         bAceptar.setText("Aceptar");
+        bAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bAceptarActionPerformed(evt);
+            }
+        });
 
         bVolver.setText("Volver");
         bVolver.addActionListener(new java.awt.event.ActionListener() {
@@ -84,11 +89,11 @@ public class VEquipos extends javax.swing.JFrame {
             }
         });
 
-        bgaction.add(rbborrar);
-        rbborrar.setText("Borrar");
-        rbborrar.addActionListener(new java.awt.event.ActionListener() {
+        bgaction.add(rbBorrar);
+        rbBorrar.setText("Borrar");
+        rbBorrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbborrarActionPerformed(evt);
+                rbBorrarActionPerformed(evt);
             }
         });
 
@@ -126,7 +131,7 @@ public class VEquipos extends javax.swing.JFrame {
                             .addComponent(tfId, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(71, 71, 71)
-                        .addComponent(rbborrar)
+                        .addComponent(rbBorrar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(rbCrear)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -144,7 +149,7 @@ public class VEquipos extends javax.swing.JFrame {
                 .addGap(7, 7, 7)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rbCrear)
-                    .addComponent(rbborrar)
+                    .addComponent(rbBorrar)
                     .addComponent(rbEditar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -184,17 +189,20 @@ public class VEquipos extends javax.swing.JFrame {
         tfId.setEnabled(false);
     }//GEN-LAST:event_rbCrearActionPerformed
 
-    private void rbborrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbborrarActionPerformed
+    private void rbBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbBorrarActionPerformed
         opt='b';
         habilitarTodos();
         tfNombre.setEnabled(false);
-    }//GEN-LAST:event_rbborrarActionPerformed
+    }//GEN-LAST:event_rbBorrarActionPerformed
 
     private void rbEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbEditarActionPerformed
-       opt='e';
+        opt='e';
         habilitarTodos();
-        tfNombre.setEnabled(false);
     }//GEN-LAST:event_rbEditarActionPerformed
+
+    private void bAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarActionPerformed
+        
+    }//GEN-LAST:event_bAceptarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -244,9 +252,9 @@ public class VEquipos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JRadioButton rbBorrar;
     private javax.swing.JRadioButton rbCrear;
     private javax.swing.JRadioButton rbEditar;
-    private javax.swing.JRadioButton rbborrar;
     private javax.swing.JTextField tfId;
     private javax.swing.JTextField tfNombre;
     // End of variables declaration//GEN-END:variables

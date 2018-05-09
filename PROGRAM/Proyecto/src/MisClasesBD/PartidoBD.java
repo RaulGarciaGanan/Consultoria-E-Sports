@@ -20,7 +20,6 @@ public class PartidoBD {
         GenericoBD gbd = new GenericoBD();
         con = gbd.abrirConexion(con);
         try{
-            gbd = new GenericoBD();
             PreparedStatement sentencia = con.prepareStatement("insert into Partido values (?,?,?,?)");
             sentencia.setInt(1, p.getIdPartido());
             sentencia.setDate(2, p.getFecha());
@@ -39,7 +38,6 @@ public class PartidoBD {
         GenericoBD gbd = new GenericoBD();
         con = gbd.abrirConexion(con);
          try{
-            gbd = new GenericoBD();
             PreparedStatement sentencia = con.prepareStatement("update Persona set id_partido=?, fecha=?, puntos_loc=?, puntos_vis=?");
             sentencia.setInt(1, p.getIdPartido());
             sentencia.setDate(2, p.getFecha());
@@ -58,7 +56,6 @@ public class PartidoBD {
         GenericoBD gbd = new GenericoBD();
         con = gbd.abrirConexion(con);
         try {
-            gbd = new GenericoBD();
             PreparedStatement sentencia = con.prepareStatement("delete from Partido where id_partido=?");
             sentencia.setInt(1, p.getIdPartido());
             sentencia.executeUpdate();

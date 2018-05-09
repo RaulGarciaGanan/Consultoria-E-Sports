@@ -19,22 +19,20 @@ public class PersonaBD {
     
     private static Connection con;
     
-    public static void insertarPersona(Persona p, Integer tipo) throws Exception{
+    public static void insertarPersona(Persona p) throws Exception{
         GenericoBD gbd = new GenericoBD();
         con = gbd.abrirConexion(con);
         try{
-            gbd = new GenericoBD();
-            PreparedStatement sentencia = con.prepareStatement("insert into Persona values (?,?,?,?)");
-            sentencia.setInt(1, p.getIdPersona());
+            PreparedStatement sentencia = con.prepareStatement("insert into Persona(dni, nombre, tipo) values (?,?,?)");
+            sentencia.setString(1, p.getDni());
             sentencia.setString(2, p.getNombre());
             sentencia.setInt(3, p.getTipo());
-            sentencia.setInt(4, p.getEquipo().getIdEquipo());
             sentencia.executeUpdate();
             
             con.close();
         }
         catch(Exception e){
-            
+            System.out.println(e.getMessage());
         }
     }
     
@@ -42,18 +40,17 @@ public class PersonaBD {
         GenericoBD gbd = new GenericoBD();
         con = gbd.abrirConexion(con);
          try{
-            gbd = new GenericoBD();
-            PreparedStatement sentencia = con.prepareStatement("update Persona set id_persona=?, nombre=?, tipo=?, id_equipo=?");
-            sentencia.setInt(1, p.getIdPersona());
+            PreparedStatement sentencia = con.prepareStatement("update Persona set dni=?, nombre=?, tipo=?, where dni=?");
+            sentencia.setString(1, p.getDni());
             sentencia.setString(2, p.getNombre());
             sentencia.setInt(3, p.getTipo());
-            sentencia.setInt(4, p.getEquipo().getIdEquipo());
+            sentencia.setString(4, p.getDni());
             sentencia.executeUpdate();
             
             con.close();
         }
         catch(Exception e){
-            
+            System.out.println(e.getMessage());
         }
     }
     
@@ -61,15 +58,37 @@ public class PersonaBD {
         GenericoBD gbd = new GenericoBD();
         con = gbd.abrirConexion(con);
         try {
-            gbd = new GenericoBD();
-            PreparedStatement sentencia = con.prepareStatement("delete from Persona where id_persona=?");
-            sentencia.setInt(1, p.getIdPersona());
+            PreparedStatement sentencia = con.prepareStatement("delete from Persona where dni=?");
+            sentencia.setString(1, p.getDni());
             sentencia.executeUpdate();
             
             con.close();
         }
         catch (Exception e) {
-            
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    public static Persona buscarPersona (String dni) throws Exception{
+        GenericoBD gbd = new GenericoBD();
+        con = gbd.abrirConexion(con);
+        try{
+            PreparedStatement sentencia = con.prepareStatement("select * from Persona where dni=?");
+            sentencia.setString(1, dni);
+            ResultSet resultado = sentencia.executeQuery();
+            if(resultado.next()){
+                Persona p = new Persona(resultado.getString(2),resultado.getString(3), resultado.getInt(4)); //Para recoger la informacion de la base y crear un objeto con ella
+                con.close();
+                return p;
+            }
+            else{
+                con.close();
+                return null;
+            }
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+            return null;
         }
     }
 }

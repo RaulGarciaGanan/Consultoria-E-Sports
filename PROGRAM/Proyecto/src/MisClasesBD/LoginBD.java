@@ -51,13 +51,13 @@ public class LoginBD {
     public static String obtenerNombre(String nombre, String contrasenya) throws Exception {
         GenericoBD gbd = new GenericoBD();
         con = gbd.abrirConexion(con);
-        //Para saludar debidamente el trabajador, utilizamos una select con una join para saber como se llama el Trabajador. Utilizamos su usuario y contraseña
+        //Para saludar debidamente la persona, utilizamos una select con una join para saber como se llama esa persona. Utilizamos su usuario y contraseña
         try {
             gbd = new GenericoBD();
             nombre = nombre.toLowerCase();
             contrasenya = contrasenya.toLowerCase();
             String a = "No se ha encontrado el usuario";
-            PreparedStatement sentencia = con.prepareStatement("select t.nombre from Login l, Trabajador t where t.dni=l.dni and lower(l.usuario)=? and lower(contraseña)=?");
+            PreparedStatement sentencia = con.prepareStatement("select p.nombre from Login l, Persona p where p.id_persona=l.id_persona and lower(l.usuario)=? and lower(contraseña)=?");
             sentencia.setString(1, nombre);
             sentencia.setString(2, contrasenya);
             ResultSet resultado = sentencia.executeQuery();
@@ -74,24 +74,18 @@ public class LoginBD {
         }
     }
     
-    public static void crearLogin (String nombre, Integer tipo, Integer id) throws Exception{
+    public static void crearLogin (String nombre, Integer tipo) throws Exception{
         GenericoBD gbd = new GenericoBD();
         con = gbd.abrirConexion(con);
-        //Cada vez que creamos a un trabajador, creamos un login para este. Se compone de su primera letra del nombre y su tipo.
-        //En caso de que el usuario exista tambien usaremos su primer caracter del id.
+        //Cada vez que creamos a una persona, creamos un login para este. Se compone de su primera letra del nombre y su tipo.
         try {
             String cadena = nombre.charAt(0) + tipo.toString();
             gbd = new GenericoBD();
             Statement sentencia = con.createStatement();
             ResultSet resultado = sentencia.executeQuery("select * from Login");
-            while (resultado.next()) {
-                if (cadena.equalsIgnoreCase(resultado.getString("usuario")))
-                    cadena = cadena+ id.toString().charAt(0);
-            }
             PreparedStatement ps = con.prepareStatement("insert into login values (?,?,?)");
-            ps.setInt(1, id);
+            ps.setString(1, cadena);
             ps.setString(2, cadena);
-            ps.setString(3, cadena);
             ps.executeUpdate();
             
             Proyecto.toVPersona("Login generado.\n Usuario :"+cadena+"\nContraseña: "+cadena);

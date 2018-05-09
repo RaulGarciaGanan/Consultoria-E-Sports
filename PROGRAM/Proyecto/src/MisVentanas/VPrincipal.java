@@ -34,6 +34,7 @@ public class VPrincipal extends javax.swing.JFrame {
         jMenu5 = new javax.swing.JMenu();
         jCheckBoxMenuItem2 = new javax.swing.JCheckBoxMenuItem();
         jMenu10 = new javax.swing.JMenu();
+        jMenuItem8 = new javax.swing.JMenuItem();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -47,22 +48,10 @@ public class VPrincipal extends javax.swing.JFrame {
         jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
         jCheckBoxMenuItem3 = new javax.swing.JCheckBoxMenuItem();
         jMenu6 = new javax.swing.JMenu();
-        jMenu7 = new javax.swing.JMenu();
-        cbmJNuevo = new javax.swing.JCheckBoxMenuItem();
-        cbmJBorrar = new javax.swing.JCheckBoxMenuItem();
-        cbmJModificar = new javax.swing.JCheckBoxMenuItem();
-        jMenu8 = new javax.swing.JMenu();
-        cbmENuevo = new javax.swing.JCheckBoxMenuItem();
-        cbmEBorrar = new javax.swing.JCheckBoxMenuItem();
-        cbmEModificar = new javax.swing.JCheckBoxMenuItem();
-        jMenu1 = new javax.swing.JMenu();
-        cbmPerNuevo = new javax.swing.JMenuItem();
-        cbmPerBorrar = new javax.swing.JMenuItem();
-        cbmPerModificar = new javax.swing.JMenuItem();
-        jMenu12 = new javax.swing.JMenu();
-        cbmCNuevo = new javax.swing.JCheckBoxMenuItem();
-        cbmCBorrar = new javax.swing.JCheckBoxMenuItem();
-        cbmCModificar = new javax.swing.JCheckBoxMenuItem();
+        miJugador = new javax.swing.JMenuItem();
+        miEquipo = new javax.swing.JMenuItem();
+        miPersona = new javax.swing.JMenuItem();
+        jMenuItem11 = new javax.swing.JMenuItem();
 
         jMenuItem4.setText("jMenuItem4");
 
@@ -74,6 +63,8 @@ public class VPrincipal extends javax.swing.JFrame {
         jCheckBoxMenuItem2.setText("jCheckBoxMenuItem2");
 
         jMenu10.setText("jMenu10");
+
+        jMenuItem8.setText("jMenuItem8");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -116,117 +107,32 @@ public class VPrincipal extends javax.swing.JFrame {
 
         jMenu6.setText("Administrador");
 
-        jMenu7.setText("Jugadores");
-
-        cbmJNuevo.setText("Nuevo");
-        cbmJNuevo.addActionListener(new java.awt.event.ActionListener() {
+        miJugador.setText("Jugadores");
+        miJugador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbmJNuevoActionPerformed(evt);
+                miJugadorActionPerformed(evt);
             }
         });
-        jMenu7.add(cbmJNuevo);
+        jMenu6.add(miJugador);
 
-        cbmJBorrar.setText("Eliminar");
-        cbmJBorrar.addActionListener(new java.awt.event.ActionListener() {
+        miEquipo.setText("Equipos");
+        miEquipo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbmJBorrarActionPerformed(evt);
+                miEquipoActionPerformed(evt);
             }
         });
-        jMenu7.add(cbmJBorrar);
+        jMenu6.add(miEquipo);
 
-        cbmJModificar.setText("Modificar");
-        cbmJModificar.addActionListener(new java.awt.event.ActionListener() {
+        miPersona.setText("Personas");
+        miPersona.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbmJModificarActionPerformed(evt);
+                miPersonaActionPerformed(evt);
             }
         });
-        jMenu7.add(cbmJModificar);
+        jMenu6.add(miPersona);
 
-        jMenu6.add(jMenu7);
-
-        jMenu8.setText("Equipos");
-
-        cbmENuevo.setText("Nuevo");
-        cbmENuevo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbmENuevoActionPerformed(evt);
-            }
-        });
-        jMenu8.add(cbmENuevo);
-
-        cbmEBorrar.setText("Eliminar");
-        cbmEBorrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbmEBorrarActionPerformed(evt);
-            }
-        });
-        jMenu8.add(cbmEBorrar);
-
-        cbmEModificar.setText("Modificar");
-        cbmEModificar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbmEModificarActionPerformed(evt);
-            }
-        });
-        jMenu8.add(cbmEModificar);
-
-        jMenu6.add(jMenu8);
-
-        jMenu1.setText("Persona");
-
-        cbmPerNuevo.setText("Nuevo");
-        cbmPerNuevo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbmPerNuevoActionPerformed(evt);
-            }
-        });
-        jMenu1.add(cbmPerNuevo);
-
-        cbmPerBorrar.setText("Eliminar");
-        cbmPerBorrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbmPerBorrarActionPerformed(evt);
-            }
-        });
-        jMenu1.add(cbmPerBorrar);
-
-        cbmPerModificar.setText("Modificar");
-        cbmPerModificar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbmPerModificarActionPerformed(evt);
-            }
-        });
-        jMenu1.add(cbmPerModificar);
-
-        jMenu6.add(jMenu1);
-
-        jMenu12.setText("Calendario");
-
-        cbmCNuevo.setText("Nuevo");
-        cbmCNuevo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbmCNuevoActionPerformed(evt);
-            }
-        });
-        jMenu12.add(cbmCNuevo);
-
-        cbmCBorrar.setText("Eliminar");
-        cbmCBorrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbmCBorrarActionPerformed(evt);
-            }
-        });
-        jMenu12.add(cbmCBorrar);
-
-        cbmCModificar.setText("Modificar");
-        cbmCModificar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbmCModificarActionPerformed(evt);
-            }
-        });
-        jMenu12.add(cbmCModificar);
-
-        jMenu6.add(jMenu12);
+        jMenuItem11.setText("Calendario");
+        jMenu6.add(jMenuItem11);
 
         jMenuBar1.add(jMenu6);
 
@@ -260,53 +166,17 @@ public class VPrincipal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
-    private void cbmJNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbmJNuevoActionPerformed
+    private void miJugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJugadorActionPerformed
         proyecto.Proyecto.abrirJugador();
-    }//GEN-LAST:event_cbmJNuevoActionPerformed
+    }//GEN-LAST:event_miJugadorActionPerformed
 
-    private void cbmJBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbmJBorrarActionPerformed
-        proyecto.Proyecto.abrirJugador();
-    }//GEN-LAST:event_cbmJBorrarActionPerformed
+    private void miEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miEquipoActionPerformed
+        proyecto.Proyecto.abrirEquipos();
+    }//GEN-LAST:event_miEquipoActionPerformed
 
-    private void cbmENuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbmENuevoActionPerformed
-        proyecto.Proyecto.abrirEquipos('c');
-    }//GEN-LAST:event_cbmENuevoActionPerformed
-
-    private void cbmPerNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbmPerNuevoActionPerformed
+    private void miPersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miPersonaActionPerformed
         proyecto.Proyecto.abrirPersona();
-    }//GEN-LAST:event_cbmPerNuevoActionPerformed
-
-    private void cbmPerBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbmPerBorrarActionPerformed
-        proyecto.Proyecto.abrirPersona();
-    }//GEN-LAST:event_cbmPerBorrarActionPerformed
-
-    private void cbmPerModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbmPerModificarActionPerformed
-        proyecto.Proyecto.abrirPersona();
-    }//GEN-LAST:event_cbmPerModificarActionPerformed
-
-    private void cbmJModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbmJModificarActionPerformed
-        proyecto.Proyecto.abrirJugador();
-    }//GEN-LAST:event_cbmJModificarActionPerformed
-
-    private void cbmEBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbmEBorrarActionPerformed
-        proyecto.Proyecto.abrirEquipos('b');
-    }//GEN-LAST:event_cbmEBorrarActionPerformed
-
-    private void cbmEModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbmEModificarActionPerformed
-        proyecto.Proyecto.abrirEquipos('e');
-    }//GEN-LAST:event_cbmEModificarActionPerformed
-
-    private void cbmCNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbmCNuevoActionPerformed
-        
-    }//GEN-LAST:event_cbmCNuevoActionPerformed
-
-    private void cbmCBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbmCBorrarActionPerformed
-        
-    }//GEN-LAST:event_cbmCBorrarActionPerformed
-
-    private void cbmCModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbmCModificarActionPerformed
-        
-    }//GEN-LAST:event_cbmCModificarActionPerformed
+    }//GEN-LAST:event_miPersonaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -345,39 +215,28 @@ public class VPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JCheckBoxMenuItem cbmCBorrar;
-    private javax.swing.JCheckBoxMenuItem cbmCModificar;
-    private javax.swing.JCheckBoxMenuItem cbmCNuevo;
-    private javax.swing.JCheckBoxMenuItem cbmEBorrar;
-    private javax.swing.JCheckBoxMenuItem cbmEModificar;
-    private javax.swing.JCheckBoxMenuItem cbmENuevo;
-    private javax.swing.JCheckBoxMenuItem cbmJBorrar;
-    private javax.swing.JCheckBoxMenuItem cbmJModificar;
-    private javax.swing.JCheckBoxMenuItem cbmJNuevo;
-    private javax.swing.JMenuItem cbmPerBorrar;
-    private javax.swing.JMenuItem cbmPerModificar;
-    private javax.swing.JMenuItem cbmPerNuevo;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem2;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu10;
-    private javax.swing.JMenu jMenu12;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
-    private javax.swing.JMenu jMenu7;
-    private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem miEquipo;
+    private javax.swing.JMenuItem miJugador;
+    private javax.swing.JMenuItem miPersona;
     // End of variables declaration//GEN-END:variables
 }

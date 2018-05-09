@@ -14,19 +14,30 @@ import java.util.ArrayList;
 public class Jugador {
     
     private Integer idJugador;
+    private String dni;
     private String nombre;
     private String nick;
     private Double sueldo;
     
     private ArrayList <Equipo> equipo;
 
-    public Jugador(Integer idJugador, String nombre, String nick, Double sueldo, ArrayList<Equipo> equipo) {
+    public Jugador(Integer idJugador, String dni, String nombre, String nick, Double sueldo, ArrayList<Equipo> equipo) {
         this.idJugador = idJugador;
+        this.dni = dni;
         this.nombre = nombre;
         this.nick = nick;
         this.sueldo = sueldo;
         this.equipo = equipo;
     }
+
+    public Jugador(String dni, String nombre, String nick, Double sueldo) {
+        this.dni = dni;
+        this.nombre = nombre;
+        this.nick = nick;
+        this.sueldo = sueldo;
+    }
+    
+    
 
     public Jugador() {
     }
@@ -37,6 +48,14 @@ public class Jugador {
 
     public void setIdJugador(Integer idJugador) {
         this.idJugador = idJugador;
+    }
+
+    public String getDni() {
+        return dni;
+    }
+
+    public void setDni(String dni) {
+        this.dni = dni;
     }
 
     public String getNombre() {

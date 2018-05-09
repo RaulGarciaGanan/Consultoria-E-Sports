@@ -12,14 +12,22 @@ package MisClases;
 public class Persona {
     
     private Integer idPersona;
+    private String dni;
     private String nombre;
     private Integer tipo;
     private Equipo equipo;
 
-    public Persona(Integer idPersona, String nombre, Integer tipo, Equipo equipo) {
+    public Persona(Integer idPersona, String dni, String nombre, Integer tipo, Equipo equipo) {
         this.idPersona = idPersona;
+        this.dni=dni;
         this.nombre = nombre;
         this.equipo = equipo;
+        this.tipo = tipo;
+    }
+
+    public Persona(String dni, String nombre, Integer tipo) {
+        this.dni = dni;
+        this.nombre = nombre;
         this.tipo = tipo;
     }
 
@@ -34,6 +42,14 @@ public class Persona {
         this.idPersona = idPersona;
     }
 
+    public String getDni() {
+        return dni;
+    }
+
+    public void setDni(String dni) {
+        this.dni = dni;
+    }
+    
     public String getNombre() {
         return nombre;
     }

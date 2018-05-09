@@ -12,13 +12,19 @@ package MisClases;
 public class Equipo {
     
     private Integer idEquipo;
+    private String ref;
     private String nombre;
 
     public Equipo(Integer idEquipo, String nombre) {
         this.idEquipo = idEquipo;
         this.nombre = nombre;
     }
-
+    
+    public Equipo(String ref, String nombre) {
+        this.ref=ref;
+        this.nombre = nombre;
+    }
+    
     public Equipo() {
     }
 
@@ -30,6 +36,14 @@ public class Equipo {
         this.idEquipo = idEquipo;
     }
 
+    public String getRef() {
+        return ref;
+    }
+
+    public void setRef(String ref) {
+        this.ref = ref;
+    }
+    
     public String getNombre() {
         return nombre;
     }

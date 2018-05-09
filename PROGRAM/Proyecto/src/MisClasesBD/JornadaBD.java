@@ -22,7 +22,6 @@ public class JornadaBD {
         con = gbd.abrirConexion(con);
         
         try{
-            gbd = new GenericoBD();
             PreparedStatement sentencia = con.prepareStatement("insert into Jornada values (?,?,?)");
             sentencia.setInt(1, j.getIdJornada());
             sentencia.setDate(2, j.getFecIni());
@@ -40,7 +39,6 @@ public class JornadaBD {
         GenericoBD gbd = new GenericoBD();
         con = gbd.abrirConexion(con);
          try{
-            gbd = new GenericoBD();
             PreparedStatement sentencia = con.prepareStatement("update Jornada set id_jornada=?, fec_ini=?, fec_fin=?");
             sentencia.setInt(1, j.getIdJornada());
             sentencia.setDate(2, j.getFecIni());
@@ -58,7 +56,6 @@ public class JornadaBD {
         GenericoBD gbd = new GenericoBD();
         con = gbd.abrirConexion(con);
         try {
-            gbd = new GenericoBD();
             PreparedStatement sentencia = con.prepareStatement("delete from Jornada where id_jornada=?");
             sentencia.setInt(1, j.getIdJornada());
             sentencia.executeUpdate();
