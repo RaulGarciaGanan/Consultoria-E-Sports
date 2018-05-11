@@ -1,5 +1,6 @@
 --PRUEBAS
 DESC jugador
+desc equipo
 --INSERTS
 
 
