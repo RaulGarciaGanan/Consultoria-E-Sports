@@ -4,8 +4,9 @@ desc equipo
 --INSERTS
 
 
---SELECTS
-SELECT * FROM persona;
-SELECT * FROM jugador;
-SELECT * FROM jornada;
-SELECT * FROM equipo;
+--SELECTS+
+SELECT * FROM Login;
+SELECT * FROM Persona;
+SELECT * FROM Jugador;
+SELECT * FROM Jornada;
+SELECT * FROM Equipo;
