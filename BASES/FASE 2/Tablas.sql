@@ -51,7 +51,7 @@ CREATE TABLE Jugador (
   nickname VARCHAR(15) UNIQUE NOT NULL,
   nombre VARCHAR(15) NOT NULL,
   sueldo NUMBER(6,2) NOT NULL,
-  id_equipo INTEGER NOT NULL,
+  id_equipo INTEGER,
   
   CONSTRAINT id_eqj_fk FOREIGN KEY(id_equipo) REFERENCES Equipo (id_equipo));
   

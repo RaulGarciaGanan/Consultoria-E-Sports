@@ -10,3 +10,6 @@ SELECT * FROM Persona;
 SELECT * FROM Jugador;
 SELECT * FROM Jornada;
 SELECT * FROM Equipo;
+
+--DELETE
+DELETE FROM Jugador;
