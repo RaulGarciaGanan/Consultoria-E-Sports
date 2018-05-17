@@ -17,11 +17,7 @@ public class VPrincipal extends javax.swing.JFrame {
     public VPrincipal(int tipo) {
         initComponents();
         
-        
-        
         habilitarModo(tipo);
-        
-        setLocationRelativeTo(null);
     }
     public VPrincipal() {
         initComponents();
@@ -53,10 +49,7 @@ public class VPrincipal extends javax.swing.JFrame {
         jmUsuario = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
         jmDuenio = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenuItem7 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        miGestionEq = new javax.swing.JMenuItem();
         jMenuItem9 = new javax.swing.JMenuItem();
         jMenuItem10 = new javax.swing.JMenuItem();
         jmAdmin = new javax.swing.JMenu();
@@ -80,7 +73,7 @@ public class VPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MisVentanas/imagenes/FondoPrincipal.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/MisVentanas/imagenes/FondoPrincipal2.jpg"))); // NOI18N
 
         jmUsuario.setText("Usuario");
 
@@ -91,25 +84,20 @@ public class VPrincipal extends javax.swing.JFrame {
 
         jmDuenio.setText("Dueño");
 
-        jMenu4.setText("Gestionar equipos");
-
-        jMenuItem6.setText("Eliminar Equipo");
-        jMenu4.add(jMenuItem6);
-
-        jMenuItem7.setText("Modificar Equipos");
-        jMenu4.add(jMenuItem7);
-
-        jMenuItem2.setText("Nuevo Equipo");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        miGestionEq.setText("Gestionar el equipo");
+        miGestionEq.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                miGestionEqActionPerformed(evt);
             }
         });
-        jMenu4.add(jMenuItem2);
-
-        jmDuenio.add(jMenu4);
+        jmDuenio.add(miGestionEq);
 
         jMenuItem9.setText("Clasificación");
+        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem9ActionPerformed(evt);
+            }
+        });
         jmDuenio.add(jMenuItem9);
 
         jMenuItem10.setText("Última jornada");
@@ -144,6 +132,11 @@ public class VPrincipal extends javax.swing.JFrame {
         jmAdmin.add(miPersona);
 
         jMenuItem11.setText("Calendario");
+        jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem11ActionPerformed(evt);
+            }
+        });
         jmAdmin.add(jMenuItem11);
 
         jMenuBar1.add(jmAdmin);
@@ -159,24 +152,20 @@ public class VPrincipal extends javax.swing.JFrame {
                 .addGroup(layout.createSequentialGroup()
                     .addGap(62, 62, 62)
                     .addComponent(jLabel2)
-                    .addContainerGap(738, Short.MAX_VALUE)))
+                    .addContainerGap(838, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel1)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(79, 79, 79)
                     .addComponent(jLabel2)
-                    .addContainerGap(521, Short.MAX_VALUE)))
+                    .addContainerGap(427, Short.MAX_VALUE)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void miJugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miJugadorActionPerformed
         proyecto.Proyecto.abrirJugador();
@@ -189,6 +178,18 @@ public class VPrincipal extends javax.swing.JFrame {
     private void miPersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miPersonaActionPerformed
         proyecto.Proyecto.abrirPersona();
     }//GEN-LAST:event_miPersonaActionPerformed
+
+    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem9ActionPerformed
+
+    private void miGestionEqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miGestionEqActionPerformed
+        proyecto.Proyecto.abrirEquipoDueño();
+    }//GEN-LAST:event_miGestionEqActionPerformed
+
+    private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
+        
+    }//GEN-LAST:event_jMenuItem11ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -231,23 +232,20 @@ public class VPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu10;
-    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JMenu jmAdmin;
     private javax.swing.JMenu jmDuenio;
     private javax.swing.JMenu jmUsuario;
     private javax.swing.JMenuItem miEquipo;
+    private javax.swing.JMenuItem miGestionEq;
     private javax.swing.JMenuItem miJugador;
     private javax.swing.JMenuItem miPersona;
     // End of variables declaration//GEN-END:variables

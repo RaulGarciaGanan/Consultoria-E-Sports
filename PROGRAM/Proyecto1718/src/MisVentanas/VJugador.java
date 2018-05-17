@@ -22,8 +22,7 @@ public class VJugador extends javax.swing.JFrame {
     
     public VJugador() {
         initComponents();
-        
-        rellenarCb();
+        rbBorrar.setSelected(true);
     }
     
     public VJugador(char opcion){
@@ -46,6 +45,7 @@ public class VJugador extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         jLabels = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -61,8 +61,6 @@ public class VJugador extends javax.swing.JFrame {
         rbCrear = new javax.swing.JRadioButton();
         rbEditar = new javax.swing.JRadioButton();
         bBuscar = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        cbEquipo = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -122,47 +120,43 @@ public class VJugador extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setText("Equipo");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(bAceptar)
+                                .addGap(39, 39, 39)
+                                .addComponent(bBuscar))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabels)
                                     .addComponent(jLabel3)
                                     .addComponent(jLabel4)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel2))
+                                    .addComponent(jLabel5))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(tfDni, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
                                     .addComponent(tfNick)
                                     .addComponent(tfNombre)
-                                    .addComponent(tfSueldo)
-                                    .addComponent(cbEquipo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(tfSueldo))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
                                 .addGap(74, 74, 74)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(rbCrear)
                                     .addComponent(rbBorrar)
-                                    .addComponent(rbEditar)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(92, 92, 92)
-                        .addComponent(bAceptar)
-                        .addGap(137, 137, 137)
-                        .addComponent(bVolver)))
+                                    .addComponent(rbEditar)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(41, 41, 41)
+                                .addComponent(bVolver)))))
                 .addContainerGap(62, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(bBuscar)
-                .addGap(190, 190, 190))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -194,17 +188,12 @@ public class VJugador extends javax.swing.JFrame {
                         .addComponent(rbCrear)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(rbEditar)))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(cbEquipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
+                .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bAceptar)
-                    .addComponent(bVolver))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(bBuscar)
-                .addContainerGap(21, Short.MAX_VALUE))
+                    .addComponent(bVolver)
+                    .addComponent(bBuscar))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         pack();
@@ -244,7 +233,6 @@ public class VJugador extends javax.swing.JFrame {
             tfNick.setText(j.getNick());
             tfNombre.setText(j.getNombre());
             tfSueldo.setText(j.getSueldo().toString());
-            cbEquipo.setSelectedIndex(proyecto.Proyecto.buscarEquipoEditarJugador(j));
         } catch (Exception e) {
             
         }
@@ -253,7 +241,7 @@ public class VJugador extends javax.swing.JFrame {
     private void bAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAceptarActionPerformed
         try{
             if(rbBorrar.isSelected()){
-                proyecto.Proyecto.borrarJugador(tfDni.getText(), tfNick.getText(), tfNombre.getText(), Double.parseDouble(tfSueldo.getText()), cbEquipo.getSelectedIndex());
+                proyecto.Proyecto.borrarJugador(tfDni.getText(), tfNick.getText(), tfNombre.getText(), Double.parseDouble(tfSueldo.getText()));
                 tfDni.setText("");
                 tfNick.setText("");
                 tfNombre.setText("");
@@ -261,7 +249,7 @@ public class VJugador extends javax.swing.JFrame {
             }
             else{
                 if(rbCrear.isSelected()){
-                    proyecto.Proyecto.insertarJugador(tfDni.getText(), tfNick.getText(), tfNombre.getText(), Double.parseDouble(tfSueldo.getText()), cbEquipo.getSelectedIndex());
+                    proyecto.Proyecto.insertarJugador(tfDni.getText(), tfNick.getText(), tfNombre.getText(), Double.parseDouble(tfSueldo.getText()));
                     tfDni.setText("");
                     tfNick.setText("");
                     tfNombre.setText("");
@@ -269,6 +257,10 @@ public class VJugador extends javax.swing.JFrame {
                 }
                 else{
                     proyecto.Proyecto.modificarJugador(tfDni.getText(), tfNick.getText(), tfNombre.getText(), Double.parseDouble(tfSueldo.getText()));
+                    tfDni.setText("");
+                    tfNick.setText("");
+                    tfNombre.setText("");
+                    tfSueldo.setText("");
                 }
             }
         }
@@ -278,7 +270,7 @@ public class VJugador extends javax.swing.JFrame {
     }//GEN-LAST:event_bAceptarActionPerformed
 
     private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
-        proyecto.Proyecto.abrirPrincipal();
+        this.dispose();
     }//GEN-LAST:event_bVolverActionPerformed
 
     /**
@@ -325,9 +317,8 @@ public class VJugador extends javax.swing.JFrame {
     private javax.swing.JButton bBuscar;
     private javax.swing.JButton bVolver;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JComboBox<String> cbEquipo;
+    private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -341,13 +332,5 @@ public class VJugador extends javax.swing.JFrame {
     private javax.swing.JTextField tfSueldo;
     // End of variables declaration//GEN-END:variables
 
-    private void rellenarCb() {
-        try{
-            proyecto.Proyecto.buscarParaRellenar(cbEquipo);
-        }
-        catch(Exception e){
-            
-        }
-        
-    }
+    
 }

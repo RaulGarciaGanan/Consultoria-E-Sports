@@ -17,6 +17,7 @@ public class VEquipos extends javax.swing.JFrame {
     public static VPrincipal vP;
     public VEquipos() {
         initComponents();
+        rbBorrar.setSelected(true);
     }
     public VEquipos(char opcion) {
         initComponents();
@@ -197,9 +198,6 @@ public class VEquipos extends javax.swing.JFrame {
     }//GEN-LAST:event_tfReferenciaActionPerformed
 
     private void bVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bVolverActionPerformed
-        vP = new VPrincipal();
-        vP.setVisible(true);
-        vP.setLocationRelativeTo(null);
         this.dispose();
     }//GEN-LAST:event_bVolverActionPerformed
 

@@ -22,15 +22,15 @@ public class LoginBD {
     private static Connection con;
     
     
-    public static Persona logearUsuario(Login login) {
-        //Utilizamos unuario y nombre para logear a un usuario.
+    public static Persona logearUsuario(Login login) throws Exception{
+        //Utilizamos usuario y nombre para logear a un usuario.
          Persona user =new Persona();
+         GenericoBD gbd = new GenericoBD();
+         con=gbd.abrirConexion(con);
         try {
-            GenericoBD gbd = new GenericoBD();
-            con=gbd.abrirConexion(con);
             String nombre = login.getUsuario();
             String contrasenya = login.getContrasena();
-            PreparedStatement sentencia = gbd.abrirConexion(con).prepareStatement("SELECT id_persona, nombre, usuario, contrasena, tipo, id_equipo FROM persona WHERE usuario=? AND contrasena=?");
+            PreparedStatement sentencia = gbd.abrirConexion(con).prepareStatement("SELECT p.id_persona, p.nombre, p.tipo, p.id_equipo, l.usuario, l.contraseña FROM persona p, login l WHERE l.id_persona=p.id_persona AND usuario=? AND contraseña=?");
             sentencia.setString(1, nombre);
             sentencia.setString(2, contrasenya);
             ResultSet resultado = sentencia.executeQuery();
@@ -74,61 +74,19 @@ public class LoginBD {
         }
     }
     
-    public static void crearLogin (String nombre, Integer tipo) throws Exception{
-        GenericoBD gbd = new GenericoBD();
-        con = gbd.abrirConexion(con);
-        //Cada vez que creamos a una persona, creamos un login para este. Se compone de su primera letra del nombre y su tipo.
-        try {
-            String cadena = nombre.charAt(0) + tipo.toString();
-            gbd = new GenericoBD();
-            Statement sentencia = con.createStatement();
-            ResultSet resultado = sentencia.executeQuery("select * from Login");
-            PreparedStatement ps = con.prepareStatement("insert into login values (?,?,?)");
-            ps.setString(1, cadena);
-            ps.setString(2, cadena);
-            ps.executeUpdate();
-            
-            Proyecto.toVPersona("Login generado.\n Usuario :"+cadena+"\nContraseña: "+cadena);
-            
-            con.close();
-        } 
-        catch (Exception e) {
-            Proyecto.toVPersona("Problemas en crearLogin, en LoginBD: " + e.getMessage());
-        }
-    }
-    
-    public static void borrarLogin(String dni) throws Exception{
+    public static void borrarLogin(String usu) throws Exception{
         GenericoBD gbd = new GenericoBD();
         con = gbd.abrirConexion(con);
         try {
             gbd = new GenericoBD();
-            PreparedStatement ps = con.prepareStatement("delete from login where dni=?");
-            ps.setString(1, dni);
+            PreparedStatement ps = con.prepareStatement("delete from login where usuario=?");
+            ps.setString(1, usu);
             ps.executeUpdate();
             
             con.close();
         } 
         catch (Exception e) {
             Proyecto.toVPersona("Problemas en borrarLogin, en LoginBD: " + e.getMessage());
-        }
-    }
-    
-    public static void modificarLogin(String usu, String pas, String dni) throws Exception{
-        GenericoBD gbd = new GenericoBD();
-        con = gbd.abrirConexion(con);
-        try {
-            gbd = new GenericoBD();
-            PreparedStatement ps = con.prepareStatement("update login set usuario=?, contraseña=? where dni=?");
-            ps.setString(1, usu);
-            ps.setString(2, pas);
-            ps.setString(3, dni);
-            ps.executeUpdate();
-            
-            con.close();
-            Proyecto.toVPersona("Login actualizado");
-        } 
-        catch (Exception e) {
-            Proyecto.toVPersona("Problemas en modificarLogin, en LoginBD: " + e.getMessage());
         }
     }
 }

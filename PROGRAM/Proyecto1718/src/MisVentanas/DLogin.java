@@ -132,8 +132,6 @@ public class DLogin extends javax.swing.JDialog {
                 
             else {
                 Proyecto.login(jTextField1.getText(), contra);
-                jTextField1.setText("");
-                jPasswordField1.setText("");
             }
         }
         catch (Exception e) {

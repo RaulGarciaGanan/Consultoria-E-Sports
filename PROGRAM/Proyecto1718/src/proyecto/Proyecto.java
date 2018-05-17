@@ -12,6 +12,7 @@ import MisClasesBD.*;
 import static MisVentanas.VJugador.e;
 import java.sql.Date;
 import java.util.ArrayList;
+import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 /**
  *
@@ -21,40 +22,35 @@ public class Proyecto {
 
     public static DLogin dL;
     public static VPrincipal vP;
+    public static VPrincipal vP1;
     public static VEquipos vE;
+    public static VEquiposDu vE2;
     public static VJugador vJ;
     public static VPersonas vPer;
     
     public static Persona per;
     
-    public static ArrayList <Equipo> lista;
+    public static ArrayList <Equipo> listaEq;
+    public static ArrayList <Jugador> listaJu;
     
     public static void main(String[] args) {
-        vP = new VPrincipal();
-        vP.setVisible(true);
-        vP.setLocationRelativeTo(null);
-        
-        dL = new DLogin(vP, true);
-        dL.setVisible(true);
-        
+        iniciarProyecto();
     }
     
     public static void cerrarProyecto() {
         System.exit(0);
     }
     
-    /*ESTE ES EL INICIO DE LOGIN DEL ADMINISTRADOR, QUE LO TENDRÁ TODO ACTIVADO Y HAY QUE INICIAR EL PROGRAMA POR
-    PRIMERA VEZ PARA CREAR UN ADMINISTRADOR; DUEÑO Y USUARIO*/
-    public static void inicioRoot() {
+    // <editor-fold defaultstate="collapsed" desc="Abrir ventanas">
+    public static void iniciarProyecto(){
         vP = new VPrincipal();
         vP.setVisible(true);
         vP.setLocationRelativeTo(null);
         
-        dL.dispose();
-        vP.dispose();
+        dL = new DLogin(vP, true);
+        dL.setVisible(true);
     }
     
-    // <editor-fold defaultstate="collapsed" desc="Abrir ventanas">
     public static void abrirPersona(){
         vPer = new VPersonas();
         vPer.setVisible(true);
@@ -72,10 +68,17 @@ public class Proyecto {
         vE.setVisible(true);
         vE.setLocationRelativeTo(null);
     }
+    
     public static void abrirEquipos(char opt){
         vE = new VEquipos(opt);
         vE.setVisible(true);
         vE.setLocationRelativeTo(null);
+    }
+    
+    public static void abrirEquipoDueño(){
+        vE2 = new VEquiposDu();
+        vE2.setVisible(true);
+        vE2.setLocationRelativeTo(null);
     }
     
     public static void abrirPrincipal(){
@@ -83,10 +86,11 @@ public class Proyecto {
         vP.setVisible(true);
         vP.setLocationRelativeTo(vP);
     }
+    
     public static void abrirPrincipal(int tipo){
-        vP = new VPrincipal(tipo);
-        vP.setVisible(true);
-        vP.setLocationRelativeTo(vP);
+        vP1 = new VPrincipal(tipo);
+        vP1.setVisible(true);
+        vP1.setLocationRelativeTo(null);
     }
     // </editor-fold>
     
@@ -117,9 +121,6 @@ public class Proyecto {
      * @param usuario El usuario con el que te logeas
      * @param contraseña La contraseña con la que te logeas
      */ 
-    public static void crearUsuario(String usuario, String contra) throws Exception{
-        
-    }
     public static void login(String usuario, String contra) throws Exception{
         Login l = new Login(usuario, contra);
         LoginBD lo = new LoginBD();
@@ -130,15 +131,27 @@ public class Proyecto {
            JOptionPane.showMessageDialog(null, "Usuario logeado: " + user.getNombre() + user.getTipo()); 
            
             abrirPrincipal(user.getTipo());
-               
+            dL.dispose();
+            vP.dispose();
         }else{
             JOptionPane.showMessageDialog(null, "Usuario incorrecto");
+            dL.contaErrores();
         }
           
     }
     
     public static void cerrarLogin() {
        System.exit(0);
+    }
+    /*ESTE ES EL INICIO DE LOGIN DEL ADMINISTRADOR, QUE LO TENDRÁ TODO ACTIVADO Y HAY QUE INICIAR EL PROGRAMA POR
+    PRIMERA VEZ PARA CREAR UN ADMINISTRADOR; DUEÑO Y USUARIO*/
+    public static void inicioRoot() {
+        vP = new VPrincipal();
+        vP.setVisible(true);
+        vP.setLocationRelativeTo(null);
+        
+        dL.dispose();
+        vP.dispose();
     }
     
     public static void toDLogin(String mensaje) {
@@ -173,19 +186,19 @@ public class Proyecto {
         // </editor-fold>
     
         // <editor-fold defaultstate="collapsed" desc="JUGADOR">
-        public static void insertarJugador(String dni, String nick, String nombre, Double sueldo, Integer e) throws Exception{
-            Jugador j = new Jugador(dni, nick, nombre, sueldo, lista.get(e));
+        public static void insertarJugador(String dni, String nick, String nombre, Double sueldo) throws Exception{
+            Jugador j = new Jugador(dni, nick, nombre, sueldo);
             JugadorBD.insertarJugador(j);
         }
         
-        public static void borrarJugador(String dni, String nick, String nombre, Double sueldo, Integer e) throws Exception{
-            Jugador j = new Jugador( dni, nick, nombre, sueldo, lista.get(e));
+        public static void borrarJugador(String dni, String nick, String nombre, Double sueldo) throws Exception{
+            Jugador j = new Jugador( dni, nick, nombre, sueldo);
             JugadorBD.borrarJugador(j);
         }
         
         public static void modificarJugador(String dni, String nick, String nombre, Double sueldo) throws Exception{
             Jugador j = new Jugador(dni, nick, nombre, sueldo);
-            JugadorBD.borrarJugador(j);
+            JugadorBD.actualizarJugador(j);
         }
         
         public static Jugador buscarJugadorDNI(String dni) throws Exception{
@@ -221,21 +234,13 @@ public class Proyecto {
             return EquipoBD.buscarEquipoId(id);
         }
         
-        public static void buscarParaRellenar(javax.swing.JComboBox cbEquipo) throws Exception{
-            lista = EquipoBD.buscarParaCb();
-            
-            for(int x = 0; x<lista.size(); x++){
-                cbEquipo.addItem(lista.get(x).getNombre());            
-            }
-        }
-        
         public static void toVEquipo(String mensaje){
             vE.mostrarMensaje(mensaje);
         }
         
         public static Integer buscarEquipoEditarJugador(Jugador j) throws Exception{
-            for(int k =0;k<lista.size();k++){
-                if(lista.get(k).getNombre().equalsIgnoreCase(j.getEquipo().getNombre())){
+            for(int k =0;k<listaEq.size();k++){
+                if(listaEq.get(k).getNombre().equalsIgnoreCase(j.getEquipo().getNombre())){
                     return k;
                 }
             }
@@ -245,13 +250,13 @@ public class Proyecto {
         
         // <editor-fold defaultstate="collapsed" desc="LIGA">
         
-        public static void iniciarParse() {
+        /*public static void iniciarParse() {
             try {
             DOMParserInforme.runExample(generarCalendario());
             } catch (Exception e) {
                 toVPersona("Error mostrando partes: "+e.getMessage());
             }
-        }
+        }*/
         
         public static void generarCalendario(ArrayList <Equipo> e){
             try{
@@ -324,6 +329,38 @@ public class Proyecto {
         }
         // </editor-fold>
         
-    // </editor-fold
+    // </editor-fold>
+        
+    // <editor-fold defaultstate="collapsed" desc="Para dueño">  
+        
+        // <editor-fold defaultstate="collapsed" desc="Gestion de equipos">   
+            public static void dueñoCreaEquipo(String eq, String nombre) throws Exception{
+                Equipo eqq = EquipoBD.buscarEquipoPorNombre(eq);
+                Jugador j = JugadorBD.buscarJugadorPorNombre(nombre);
+                j.setEquipo(eqq);
+                JugadorBD.dueñoCreaEquipo(j);
+            }
+            
+            public static void buscarParaRellenar(javax.swing.JComboBox cbEquipo) throws Exception{
+                listaEq = EquipoBD.buscarParaCb();
+            
+                for(int x = 0; x<listaEq.size(); x++){
+                    cbEquipo.addItem(listaEq.get(x).getNombre());            
+                }
+            }
+            
+            public static void buscarParaRellenarJu(javax.swing.JList jlJugadores) throws Exception{
+                listaJu = JugadorBD.buscarParaLista();
+                DefaultListModel dlm = new DefaultListModel();
+                
+                for(int x = 0; x<listaJu.size(); x++){
+                    dlm.add(x, listaJu.get(x).getNombre());
+                }
+                
+                jlJugadores.setModel(dlm);
+            }
+        // </editor-fold>
+        
+    // </editor-fold>
 }
 
