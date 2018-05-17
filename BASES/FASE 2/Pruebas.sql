@@ -10,6 +10,9 @@ SELECT * FROM Persona;
 SELECT * FROM Jugador;
 SELECT * FROM Jornada;
 SELECT * FROM Equipo;
+desc equipo;
 
 --DELETE
 DELETE FROM Jugador;
+
+delete from Equipo where referencia=1234;
