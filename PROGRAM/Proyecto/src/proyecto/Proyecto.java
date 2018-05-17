@@ -5,21 +5,17 @@
  */
 package proyecto;
 
-import MisVentanas.*;
 /**
  *
  * @author Aitor Alday
  */
 public class Proyecto {
 
-    private static Principal v1;
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         
-        v1 = new Principal();
-        v1.setVisible(true);
     }
     
 }
