@@ -42,10 +42,10 @@
 <logicalDatatype>LOGDT024</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Id_Persona" id="71453590-0444-4E13-C92F-5787DE211C5E">
+<Attribute name="Id_Persona" id="BC800DB6-153D-C8B9-0CE7-1540345FB69B">
 <createdBy>Aitor Alday</createdBy>
-<createdTime>2018-04-26 08:29:14 UTC</createdTime>
-<generatorID>1EFDFAE8-4E4D-2B71-58B9-4918F9F3FDCC</generatorID>
+<createdTime>2018-04-26 10:37:45 UTC</createdTime>
+<generatorID>C0F82291-6867-4E11-DB11-95372628D31B</generatorID>
 <ownerDesignName>MER_Definitivo</ownerDesignName>
 <engineerTo>
 <item key="31B50B12-2895-9CCC-A4F9-0DF21D2ED508" value="true"/>

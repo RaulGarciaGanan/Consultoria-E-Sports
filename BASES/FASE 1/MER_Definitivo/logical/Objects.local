@@ -1,20 +1,12 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <oracle.dbtools.crest.model.design.logical.LogicalDesign>
-   <object objectType="Entity" objectID="7A997394-7D9E-A777-DF92-5655FC921B7E" name="ADMIN" seqName="seg_0"/>
-   <object objectType="Entity" objectID="6F565A7E-7826-9D49-8DA3-D214E9CE38D1" name="DUEÃ‘O" seqName="seg_0"/>
    <object objectType="Entity" objectID="6249FBD2-45FE-8D34-F886-2FE74CF24EE8" name="EQUIPO" seqName="seg_0"/>
    <object objectType="Entity" objectID="9E678490-2CB5-00A1-E6A4-36F5C9FD6F01" name="JORNADA" seqName="seg_0"/>
    <object objectType="Entity" objectID="248771BE-0E30-B5DB-1C8F-ACD27960012C" name="JUGADOR" seqName="seg_0"/>
    <object objectType="Entity" objectID="AF31C25A-A326-7C3C-A417-67DE8FB5FA22" name="PARTIDO" seqName="seg_0"/>
    <object objectType="Entity" objectID="82EFE4C5-EF5A-E48D-8EF8-2713241D6328" name="PERSONA" seqName="seg_0"/>
-   <object objectType="Entity" objectID="5F637445-C573-B3B8-A805-C707F0E29F48" name="TEMPORADA" seqName="seg_0"/>
-   <object objectType="Entity" objectID="59CB3EF8-BCC1-A035-3CD9-8D6B1867F75B" name="USUARIO" seqName="seg_0"/>
    <object objectType="Relation" objectID="E383E7CA-46ED-D8D0-AC8E-9E33468672F4" name="Relation_1" seqName="seg_0"/>
-   <object objectType="Relation" objectID="1EFDFAE8-4E4D-2B71-58B9-4918F9F3FDCC" name="Relation_3" seqName="seg_0"/>
    <object objectType="Relation" objectID="96C4B365-31A5-1661-6E7C-58BEAB36FD08" name="Relation_4" seqName="seg_0"/>
    <object objectType="Relation" objectID="4857C816-CD90-5AF8-F9CE-BBD050DA5697" name="Relation_5" seqName="seg_0"/>
-   <object objectType="Relation" objectID="AC0D82D9-DE2D-70B3-CA55-51D8216B4C31" name="Relation_6" seqName="seg_0"/>
-   <object objectType="Hierarchy relation" objectID="3F95F0D1-1666-C4F7-CDC4-795F60EC973C" name="Hierarchy_1" seqName="seg_0"/>
-   <object objectType="Hierarchy relation" objectID="8EBCC72B-434B-1A98-BFA9-C1EACBD7A940" name="Hierarchy_2" seqName="seg_0"/>
-   <object objectType="Hierarchy relation" objectID="3A7881C1-D939-518E-19E6-79660D236461" name="Hierarchy_3" seqName="seg_0"/>
+   <object objectType="Relation" objectID="C0F82291-6867-4E11-DB11-95372628D31B" name="Relation_8" seqName="seg_0"/>
 </oracle.dbtools.crest.model.design.logical.LogicalDesign>
