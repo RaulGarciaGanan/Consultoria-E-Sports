@@ -12,18 +12,26 @@ import MisClases.Jugador;
  * @author Aitor Alday
  */
 public class VEquiposDu extends javax.swing.JFrame {
-
+    private char opt;
     /**
      * Creates new form VEquiposDu
      */
     public VEquiposDu() {
         initComponents();
-        rbBorrar.setSelected(true);
+        rbCrear.setSelected(true);
         
         rellenarCb();
-        rellenarLista();
+        //rellenarLista();
     }
-
+    public VEquiposDu(char opcion){
+        initComponents();
+        switch(opcion){
+            case 'b':rbBorrar.doClick();
+                break;
+            case 'c':rbCrear.doClick();
+                break;
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -59,9 +67,19 @@ public class VEquiposDu extends javax.swing.JFrame {
 
         buttonGroup1.add(rbBorrar);
         rbBorrar.setText("Sacar");
+        rbBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbBorrarActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(rbCrear);
         rbCrear.setText("Meter");
+        rbCrear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbCrearActionPerformed(evt);
+            }
+        });
 
         bAceptar.setText("Aceptar");
         bAceptar.addActionListener(new java.awt.event.ActionListener() {
@@ -103,17 +121,18 @@ public class VEquiposDu extends javax.swing.JFrame {
                                 .addComponent(cbNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(rbBorrar)
-                        .addComponent(rbCrear))
-                    .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(bBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(bAceptar)
                             .addComponent(bVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(4, 4, 4)))
-                .addGap(106, 106, 106))
+                        .addGap(110, 110, 110))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(rbBorrar)
+                            .addComponent(rbCrear))
+                        .addGap(64, 64, 64))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -131,11 +150,11 @@ public class VEquiposDu extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(66, 66, 66)
-                        .addComponent(rbBorrar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(67, 67, 67)
                         .addComponent(rbCrear)
-                        .addGap(71, 71, 71)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(rbBorrar)
+                        .addGap(70, 70, 70)
                         .addComponent(bAceptar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(bBuscar)
@@ -169,11 +188,37 @@ public class VEquiposDu extends javax.swing.JFrame {
         try{
             Jugador j = new Jugador();
             cbNombre.setSelectedIndex(proyecto.Proyecto.buscarEquipoEditarJugador(j));
+            try{
+            proyecto.Proyecto.buscarParaRellenarJuConEquipo(jlJugadores);
+            } 
+            catch(Exception e){
+                System.out.println("Error");
+            }
         }
         catch(Exception e){
             System.out.println(e.getMessage());
         }
     }//GEN-LAST:event_bBuscarActionPerformed
+
+    private void rbBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbBorrarActionPerformed
+        opt='b';
+        try{
+            proyecto.Proyecto.buscarParaRellenarJuConEquipo(jlJugadores);
+        } 
+        catch(Exception e){
+            System.out.println("Error");
+        }
+    }//GEN-LAST:event_rbBorrarActionPerformed
+
+    private void rbCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbCrearActionPerformed
+        opt='c';
+        try{
+            proyecto.Proyecto.buscarParaRellenarJuSinEquipo(jlJugadores);
+        } 
+        catch(Exception e){
+            System.out.println("Error");
+        }
+    }//GEN-LAST:event_rbCrearActionPerformed
 
     /**
      * @param args the command line arguments
@@ -234,12 +279,17 @@ public class VEquiposDu extends javax.swing.JFrame {
         }
     }
     
-    private void rellenarLista() {
+    /*private void rellenarLista() {
         try{
-            proyecto.Proyecto.buscarParaRellenarJu(jlJugadores);
+            if(rbBorrar.isSelected()){
+                proyecto.Proyecto.buscarParaRellenarJuConEquipo(jlJugadores);
+            }
+            else{
+                proyecto.Proyecto.buscarParaRellenarJuSinEquipo(jlJugadores);
+            }
         }
         catch(Exception e){
             
         }
-    }
+    }*/
 }

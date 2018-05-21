@@ -128,7 +128,7 @@ public class Proyecto {
         Persona user = lo.logearUsuario(l);
         
         if(user.getIdPersona() != null){
-           JOptionPane.showMessageDialog(null, "Usuario logeado: " + user.getNombre() + user.getTipo()); 
+           JOptionPane.showMessageDialog(null, "Bienvenido: " + user.getNombre()); 
            
             abrirPrincipal(user.getTipo());
             dL.dispose();
@@ -252,6 +252,7 @@ public class Proyecto {
             }
             return null;
         }
+        
         // </editor-fold>
         
         // <editor-fold defaultstate="collapsed" desc="LIGA">
@@ -371,8 +372,19 @@ public class Proyecto {
                 }
             }
             
-            public static void buscarParaRellenarJu(javax.swing.JList jlJugadores) throws Exception{
+            public static void buscarParaRellenarJuConEquipo(javax.swing.JList jlJugadores) throws Exception{
                 listaJu = JugadorBD.buscarParaLista();
+                DefaultListModel dlm = new DefaultListModel();
+                
+                for(int x = 0; x<listaJu.size(); x++){
+                    dlm.add(x, listaJu.get(x).getNombre());
+                }
+                
+                jlJugadores.setModel(dlm);
+            }
+            
+            public static void buscarParaRellenarJuSinEquipo(javax.swing.JList jlJugadores) throws Exception{
+                listaJu = JugadorBD.buscarParaListaMeter();
                 DefaultListModel dlm = new DefaultListModel();
                 
                 for(int x = 0; x<listaJu.size(); x++){
