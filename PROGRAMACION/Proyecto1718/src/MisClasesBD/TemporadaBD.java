@@ -8,6 +8,7 @@ package MisClasesBD;
 import MisClases.Temporada;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.Statement;
 /**
  *
@@ -33,5 +34,29 @@ public class TemporadaBD {
            return 0;
 
        }
+    }
+    
+    public static Temporada selectTemp(Integer anio) throws Exception{
+        GenericoBD gbd = new GenericoBD();
+        con = gbd.abrirConexion(con);
+        try{
+            PreparedStatement ps = con.prepareStatement("select * from temporada where año=?");
+            ps.setInt(1, anio);
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){
+                Temporada t = new Temporada();
+                t.setIdTemporada(rs.getInt(1));
+                con.close();
+                return t;
+            }
+            else{
+                con.close();
+                return null;
+            }
+        }
+        catch(Exception e)   {
+            System.out.println(e.getMessage());
+            return null;
+        }
     }
 }

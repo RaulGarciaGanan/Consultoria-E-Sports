@@ -1,29 +1,25 @@
---PRUEBAS
-DESC jugador
-desc equipo
---INSERTS
-insert into equipo (referencia,nombre) values ('2634','test');
-commit;
+1 fila eliminado
 
---SELECTS+
-SELECT * FROM Login;
-SELECT * FROM Persona;
-SELECT * FROM Jugador;
-SELECT * FROM Jornada;
-SELECT * FROM Equipo;
-SELECT * FROM Partido;
-desc equipo;
+Confirmación terminada.
+3 filas eliminado
 
---DELETE
-DELETE FROM Jugador;
-DELETE FROM Equipo;
-DELETE FROM Partido;
-DELETE FROM Jornada;
-DELETE FROM Temporada;
---UODATES
-UPDATE Jugador SET ID_EQUIPO=null;
-update Jugador set id_equipo=81 where nombre='Jugador 2';
-COMMIT;
+Confirmación terminada.
+Nombre     Nulo     Tipo       
+---------- -------- ---------- 
+ID_JORNADA NOT NULL NUMBER(38) 
+FEC_INI    NOT NULL DATE       
+FEC_FIN    NOT NULL DATE       
+3 filas eliminado
 
+0 filas eliminado
 
+56 filas eliminado
 
+Confirmación terminada.
+1 fila actualizadas.
+
+1 fila actualizadas.
+
+1 fila actualizadas.
+
+Confirmación terminada.

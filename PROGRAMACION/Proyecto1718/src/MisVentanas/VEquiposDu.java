@@ -18,7 +18,6 @@ public class VEquiposDu extends javax.swing.JFrame {
      */
     public VEquiposDu() {
         initComponents();
-        rbCrear.setSelected(true);
         
         rellenarCb();
         //rellenarLista();

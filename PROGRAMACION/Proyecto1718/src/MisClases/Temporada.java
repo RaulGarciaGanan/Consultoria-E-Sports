@@ -9,6 +9,7 @@ import java.util.ArrayList;
 public class Temporada {
     private Integer idTemporada;
     private Integer anio;
+    
     private ArrayList<Partido> partidos;
 
     public Temporada(Integer idTemporada, Integer anio) {

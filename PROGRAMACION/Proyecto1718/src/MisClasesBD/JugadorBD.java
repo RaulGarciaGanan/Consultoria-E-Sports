@@ -115,9 +115,8 @@ public class JugadorBD {
         GenericoBD gbd = new GenericoBD();
         con = gbd.abrirConexion(con);
         try{
-            PreparedStatement sentencia = con.prepareStatement("update Jugador set id_equipo=? where nombre=?");
-            sentencia.setInt(1, j.getEquipo().getIdEquipo());//Equipo
-            sentencia.setString(2, j.getNombre());
+            PreparedStatement sentencia = con.prepareStatement("update Jugador set id_equipo=null where nombre=?");           
+            sentencia.setString(1, j.getNombre());
             sentencia.executeUpdate();
             
             con.close();
@@ -206,7 +205,7 @@ public class JugadorBD {
         GenericoBD gbd = new GenericoBD();
         con = gbd.abrirConexion(con);
         try{
-            PreparedStatement sentencia = con.prepareStatement("select * from Jugador where nickname=?");
+            PreparedStatement sentencia = con.prepareStatement("select * from Jugador where nombre=?");
             sentencia.setString(1, nombre);
             ResultSet resultado = sentencia.executeQuery();
             if(resultado.next()){

@@ -14,6 +14,7 @@ import java.sql.Date;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
+import Parser.*;
 /**
  *
  * @author Aitor Alday
@@ -280,7 +281,8 @@ public class Proyecto {
             
             t.setAnio(ano);
             int id=tbd.insertarTemporada(t);
-            t.setIdTemporada(id);
+            t = TemporadaBD.selectTemp(ano);
+            t.setIdTemporada(t.getIdTemporada());
             ArrayList <Equipo> visitantes = new ArrayList <Equipo> ();
             
             
@@ -373,7 +375,7 @@ public class Proyecto {
             }
             
             public static void buscarParaRellenarJuConEquipo(javax.swing.JList jlJugadores) throws Exception{
-                listaJu = JugadorBD.buscarParaLista();
+                listaJu = EquipoBD.buscarEquipoDueño();
                 DefaultListModel dlm = new DefaultListModel();
                 
                 for(int x = 0; x<listaJu.size(); x++){
@@ -393,8 +395,23 @@ public class Proyecto {
                 
                 jlJugadores.setModel(dlm);
             }
+            
+            public static void recogerCombo(javax.swing.JComboBox cbNombre) throws Exception{
+                
+            }
+            
         // </editor-fold>
         
     // </editor-fold>
+            
+    // <editor-fold defaultstate="collapsed" desc="Parser">
+        public static void cargarDOM() throws Exception{
+            Parser.ClasificacionDOM clas = new ClasificacionDOM();
+            clas.ejecutar();
+            
+            LigaDOM liga = new LigaDOM();
+            liga.ejecutar();
+        }    
+    //</editor-fold>
 }
 

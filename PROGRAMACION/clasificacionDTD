@@ -1,0 +1,13 @@
+<!ELEMENT clasificacion ()>
+
+<!ELEMENT cuartos_final (partido)>
+
+<!ELEMENT partido (equipo_local, equipo_visitante, puntuacion_el, puntuacion_ev)>
+
+        <!ELEMENT nombre (#PCDATA)>
+
+        <!ELEMENT referencia (#PCDATA)>
+
+        <!ELEMENT puntuacion (#PCDATA)>
+
+

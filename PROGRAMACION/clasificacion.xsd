@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:element name="clasificacion" type="tipo_clasificacion"/>
+
+    <xs:complexType name="tipo_clasificacion">
+        <xs:sequence>
+            <xs:element name="equipo" type="tipo_equipo" maxOccurs="8"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="tipo_equipo">
+            <xs:element name="nombre" type="xs:string"/>
+            <xs:element name="dueño" type="xs:string"/>
+            <xs:element name="puntuacion" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+</xs:schema>

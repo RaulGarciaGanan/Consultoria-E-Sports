@@ -16,6 +16,7 @@ public class Jornada {
     private Integer idJornada;
     private Date fecIni;
     private Date fecFin;
+    
     private Temporada temporada;
 
     public Jornada(Integer idJornada, Date fecIni, Date fecFin) {

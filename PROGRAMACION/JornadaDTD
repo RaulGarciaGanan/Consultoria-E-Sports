@@ -1,0 +1,13 @@
+<!ELEMENT liga (jornada)+>
+
+<!ELEMENT jornada (partido,fecha_ini)+>
+
+<!ELEMENT partido (equipo_local, equipo_visitante, )>
+
+	<!ELEMENT equipo_local (#PCDATA)>
+
+	<!ELEMENT equipo_visitante (#PCDATA)>
+
+	<!ELEMENT resultado(#PCDATA)>
+
+<ELEMENT fecha_ini (#PCDATA)>
