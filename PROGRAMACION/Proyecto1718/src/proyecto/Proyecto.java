@@ -14,6 +14,7 @@ import java.sql.Date;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
+import Parser.*;
 /**
  *
  * @author Aitor Alday
@@ -128,7 +129,7 @@ public class Proyecto {
         Persona user = lo.logearUsuario(l);
         
         if(user.getIdPersona() != null){
-           JOptionPane.showMessageDialog(null, "Usuario logeado: " + user.getNombre() + user.getTipo()); 
+           JOptionPane.showMessageDialog(null, "Bienvenido: " + user.getNombre()); 
            
             abrirPrincipal(user.getTipo());
             dL.dispose();
@@ -252,6 +253,7 @@ public class Proyecto {
             }
             return null;
         }
+        
         // </editor-fold>
         
         // <editor-fold defaultstate="collapsed" desc="LIGA">
@@ -279,7 +281,8 @@ public class Proyecto {
             
             t.setAnio(ano);
             int id=tbd.insertarTemporada(t);
-            t.setIdTemporada(id);
+            t = TemporadaBD.selectTemp(ano);
+            t.setIdTemporada(t.getIdTemporada());
             ArrayList <Equipo> visitantes = new ArrayList <Equipo> ();
             
             
@@ -371,8 +374,8 @@ public class Proyecto {
                 }
             }
             
-            public static void buscarParaRellenarJu(javax.swing.JList jlJugadores) throws Exception{
-                listaJu = JugadorBD.buscarParaLista();
+            public static void buscarParaRellenarJuConEquipo(javax.swing.JList jlJugadores) throws Exception{
+                listaJu = EquipoBD.buscarEquipoDueño();
                 DefaultListModel dlm = new DefaultListModel();
                 
                 for(int x = 0; x<listaJu.size(); x++){
@@ -381,8 +384,34 @@ public class Proyecto {
                 
                 jlJugadores.setModel(dlm);
             }
+            
+            public static void buscarParaRellenarJuSinEquipo(javax.swing.JList jlJugadores) throws Exception{
+                listaJu = JugadorBD.buscarParaListaMeter();
+                DefaultListModel dlm = new DefaultListModel();
+                
+                for(int x = 0; x<listaJu.size(); x++){
+                    dlm.add(x, listaJu.get(x).getNombre());
+                }
+                
+                jlJugadores.setModel(dlm);
+            }
+            
+            public static void recogerCombo(javax.swing.JComboBox cbNombre) throws Exception{
+                
+            }
+            
         // </editor-fold>
         
     // </editor-fold>
+            
+    // <editor-fold defaultstate="collapsed" desc="Parser">
+        public static void cargarDOM() throws Exception{
+            Parser.ClasificacionDOM clas = new ClasificacionDOM();
+            clas.ejecutar();
+            
+            LigaDOM liga = new LigaDOM();
+            liga.ejecutar();
+        }    
+    //</editor-fold>
 }
 

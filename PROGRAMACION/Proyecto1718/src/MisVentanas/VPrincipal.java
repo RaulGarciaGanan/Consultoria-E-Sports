@@ -6,6 +6,7 @@
 package MisVentanas;
 
 import MisClases.Persona;
+import Parser.*;
 
 /**
  *
@@ -87,6 +88,11 @@ public class VPrincipal extends javax.swing.JFrame {
         jmUsuario.setText("Usuario");
 
         jMenuItem3.setText("Clasificación");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
         jmUsuario.add(jMenuItem3);
 
         jMenuBar1.add(jmUsuario);
@@ -110,6 +116,11 @@ public class VPrincipal extends javax.swing.JFrame {
         jmDuenio.add(jMenuItem9);
 
         jMenuItem10.setText("Última jornada");
+        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem10ActionPerformed(evt);
+            }
+        });
         jmDuenio.add(jMenuItem10);
 
         jMenuBar1.add(jmDuenio);
@@ -209,7 +220,8 @@ public class VPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_miPersonaActionPerformed
 
     private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
-        // TODO add your handling code here:
+       Parser.ClasificacionSAX cs = new ClasificacionSAX();
+       cs.ejecutar();
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 
     private void miGestionEqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miGestionEqActionPerformed
@@ -217,9 +229,8 @@ public class VPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_miGestionEqActionPerformed
 
     private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
-      
-          int ano=  Integer.parseInt(javax.swing.JOptionPane.showInputDialog(null,"año de la temporada"));
-            proyecto.Proyecto.generarCalendario(ano);
+        int ano=  Integer.parseInt(javax.swing.JOptionPane.showInputDialog(null,"Año de la temporada:"));
+        proyecto.Proyecto.generarCalendario(ano);
         
     }//GEN-LAST:event_jMenuItem11ActionPerformed
 
@@ -230,6 +241,16 @@ public class VPrincipal extends javax.swing.JFrame {
     private void jmCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmCerrarSesionActionPerformed
         proyecto.Proyecto.cerrarSesion();
     }//GEN-LAST:event_jmCerrarSesionActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        Parser.ClasificacionSAX cs = new ClasificacionSAX();
+        cs.ejecutar();
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
+        Parser.LigaSAX ls = new LigaSAX();
+        ls.ejecutar();
+    }//GEN-LAST:event_jMenuItem10ActionPerformed
 
     /**
      * @param args the command line arguments

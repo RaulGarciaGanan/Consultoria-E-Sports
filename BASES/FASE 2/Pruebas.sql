@@ -1,19 +1,25 @@
---PRUEBAS
-DESC jugador
-desc equipo
---INSERTS
+1 fila eliminado
 
+Confirmación terminada.
+3 filas eliminado
 
---SELECTS+
-SELECT * FROM Login;
-SELECT * FROM Persona;
-SELECT * FROM Jugador;
-SELECT * FROM Jornada;
-SELECT * FROM Equipo;
-SELECT * FROM Partido;
-desc equipo;
+Confirmación terminada.
+Nombre     Nulo     Tipo       
+---------- -------- ---------- 
+ID_JORNADA NOT NULL NUMBER(38) 
+FEC_INI    NOT NULL DATE       
+FEC_FIN    NOT NULL DATE       
+3 filas eliminado
 
---DELETE
-DELETE FROM Jugador;
+0 filas eliminado
 
-delete from Equipo where referencia = 1234;
+56 filas eliminado
+
+Confirmación terminada.
+1 fila actualizadas.
+
+1 fila actualizadas.
+
+1 fila actualizadas.
+
+Confirmación terminada.

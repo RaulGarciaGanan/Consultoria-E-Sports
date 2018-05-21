@@ -16,11 +16,13 @@ public class Partido {
     
     private Integer idPartido;
     private Date fecha;
+    private String resultado;
+    
     private Equipo local;
     private Equipo visitante;
     private Equipo ganador;
     private Jornada jornada;
-    private String resultado;
+    
 
     public Partido(Integer idPartido, Date fecha, Equipo local, Equipo visitante, Equipo ganador, Jornada jornada, String resultado) {
         this.idPartido = idPartido;

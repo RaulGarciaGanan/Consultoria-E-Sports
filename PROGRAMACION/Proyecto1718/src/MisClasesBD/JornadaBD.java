@@ -23,16 +23,18 @@ public class JornadaBD {
         con = gbd.abrirConexion(con);
         
         try{
-            PreparedStatement sentencia = con.prepareStatement("insert into Jornada(id_temporada,fec_ini,fec_fin) values (?,?,?)",Statement.RETURN_GENERATED_KEYS);
-            sentencia.setInt(1, j.getTemporada().getIdTemporada());
-            sentencia.setDate(2, j.getFecIni());
-            sentencia.setDate(3, j.getFecFin());
-           int id= sentencia.executeUpdate();
+            PreparedStatement sentencia = con.prepareStatement("insert into Jornada(fec_ini,fec_fin,id_temporada) values (?,?,?)",Statement.RETURN_GENERATED_KEYS);
+            
+            sentencia.setDate(1, j.getFecIni());
+            sentencia.setDate(2, j.getFecFin());
+            sentencia.setInt(3, j.getTemporada().getIdTemporada());
+            int id= sentencia.executeUpdate();
             
             con.close();
             return id;
         }
         catch(Exception e){
+            System.out.println(e.getMessage());
             return 0;
         }
     }

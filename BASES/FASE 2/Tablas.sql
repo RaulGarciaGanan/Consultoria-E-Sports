@@ -104,7 +104,10 @@ CREATE TABLE Jornada (
                       ENABLE
              CONSTRAINT id_jo_pk PRIMARY KEY,
   fec_ini DATE NOT NULL,
-  fec_fin DATE NOT NULL
+  fec_fin DATE NOT NULL,
+  id_temporada INTEGER NOT NULL,
+  
+  CONSTRAINT id_tempo_fk FOREIGN KEY (id_temporada) REFERENCES Temporada (id_temporada)
 );
   
 DROP TABLE Partido CASCADE CONSTRAINTS;
@@ -124,13 +127,11 @@ CREATE TABLE Partido (
   id_ganador INTEGER,
   resultado VARCHAR(10),
   id_jornada INTEGER NOT NULL,
-  id_temporada INTEGER NOT NULL,
   
   CONSTRAINT id_jo_fk FOREIGN KEY (id_jornada) REFERENCES Jornada (id_jornada),
   CONSTRAINT id_local_fk FOREIGN KEY (id_local) REFERENCES Equipo (id_equipo),
   CONSTRAINT id_visit_fk FOREIGN KEY (id_visitante) REFERENCES Equipo (id_equipo),
-  CONSTRAINT id_gana_fk FOREIGN KEY (id_ganador) REFERENCES Equipo (id_equipo),
-  CONSTRAINT id_tem_fk FOREIGN KEY (id_temporada) REFERENCES Temporada (id_temporada)
+  CONSTRAINT id_gana_fk FOREIGN KEY (id_ganador) REFERENCES Equipo (id_equipo)
   );
   
   
